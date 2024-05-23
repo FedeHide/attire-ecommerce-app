@@ -1,0 +1,48 @@
+{
+    "name": "titulo",
+    "short_name": "titulo",
+    "description": "description",
+    "start_url": "/",
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "./android-chrome-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "./apple-touch-icon.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "./favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "./favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "./favicon.ico",
+            "sizes": "any",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "./mstile-150x150.png",
+            "sizes": "150x150",
+            "type": "image/png",
+            "color": "#da532c"
+        },
+        {
+            "src": "./safari-pinned-tab.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "color": "#5bbad5"
+        }
+    ]
+}

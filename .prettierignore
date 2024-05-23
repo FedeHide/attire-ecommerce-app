@@ -1,0 +1,13 @@
+*.md
+*LICENSE
+/node_modules
+/dist
+
+# sass
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# typescript
+*.js.map
