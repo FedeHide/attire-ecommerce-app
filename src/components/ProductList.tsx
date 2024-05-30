@@ -20,7 +20,7 @@ const products = [
 	},
 	{
 		id: 3,
-		title: 'Plaid Button-Up Shirt',
+		title: 'Checkered Shirt',
 		description: 'Casual checkered shirt',
 		price: 30,
 		img: 'https://images.pexels.com/photos/18185494/pexels-photo-18185494/free-photo-of-hombre-calle-chaqueta-joven.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',

@@ -17,7 +17,7 @@ export default function CartModal() {
 						{/* ITEM */}
 						<div className="flex gap-4">
 							<Image
-								src="https://images.pexels.com/photos/4050790/pexels-photo-4050790.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+								src="https://images.pexels.com/photos/2932727/pexels-photo-2932727.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 								width={72}
 								height={96}
 								alt="Product"
@@ -28,8 +28,8 @@ export default function CartModal() {
 								<div>
 									{/* TITLE */}
 									<div className="flex items-center justify-between gap-8">
-										<h3 className="font-semibold">Product Name</h3>
-										<div className="p-1 bg-gray-50 rounded-sm">$49</div>
+										<h3 className="font-semibold">Classic Hoddie</h3>
+										<div className="p-1 bg-gray-50 rounded-sm">$80</div>
 									</div>
 									{/* DESC */}
 									<div className="text-sm text-gray-500">
@@ -57,8 +57,8 @@ export default function CartModal() {
 								<div>
 									{/* TITLE */}
 									<div className="flex items-center justify-between gap-8">
-										<h3 className="font-semibold">Product Name</h3>
-										<div className="p-1 bg-gray-50 rounded-sm">$49</div>
+										<h3 className="font-semibold">Bonsai Tree</h3>
+										<div className="p-1 bg-gray-50 rounded-sm">$45</div>
 									</div>
 									{/* DESC */}
 									<div className="text-sm text-gray-500">
@@ -67,7 +67,7 @@ export default function CartModal() {
 								</div>
 								{/* BOTTOM */}
 								<div className="flex justify-between text-sm">
-									<span className="text-gray-500">Qty. 2</span>
+									<span className="text-gray-500">Qty. 1</span>
 									<span className="text-blue-500">Remove</span>
 								</div>
 							</div>
@@ -77,7 +77,7 @@ export default function CartModal() {
 					<div>
 						<div className="flex items-center justify-between font-semibold">
 							<span>Subtotal</span>
-							<span>$49</span>
+							<span>$125</span>
 						</div>
 						<p className="text-gray-500 text-sm mt-2 mb-4">
 							Shipping and taxes calculated at checkout.
