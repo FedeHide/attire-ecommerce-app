@@ -46,16 +46,13 @@ export default function NavIcons(): JSX.Element {
 				height={22}
 			/>
 			{/* CART */}
-			<div className="relative cursor-pointer">
-				<Image
-					onClick={() => {
-						setIsCartOpen(!isCartOpen)
-					}}
-					src="/assets/cart.png"
-					alt="cart icon"
-					width={22}
-					height={22}
-				/>
+			<div
+				className="relative cursor-pointer"
+				onClick={() => {
+					setIsCartOpen(!isCartOpen)
+				}}
+			>
+				<Image src="/assets/cart.png" alt="cart icon" width={22} height={22} />
 				<div className="absolute -top-4 -right-4 w-6 h-6 bg-clrPrimary rounded-full text-white text-sm flex items-center justify-center">
 					2
 				</div>
