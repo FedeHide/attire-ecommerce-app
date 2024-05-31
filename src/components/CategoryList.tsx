@@ -55,6 +55,8 @@ export default function CategoryList() {
 	const [startX, setStartX] = useState(0)
 	const [scrollLeft, setScrollLeft] = useState(0)
 
+	/* slider */
+
 	const handleMouseDown = (e: React.MouseEvent) => {
 		e.preventDefault()
 		if (containerRef.current) {

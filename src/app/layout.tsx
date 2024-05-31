@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from 'next'
+import { Inter } from 'next/font/google'
 import '../scss/main.scss'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const viewport: Viewport = {
 	themeColor: '#ffffff',
@@ -46,7 +49,7 @@ export default function RootLayout({
 				/>
 				<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 			</head>
-			<body>
+			<body className={inter.className}>
 				<Navbar />
 				{children}
 				<Footer />
