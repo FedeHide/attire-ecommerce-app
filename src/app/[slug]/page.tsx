@@ -1,3 +1,4 @@
+import CustomizeProducts from '@/components/CustomizeProducts'
 import ProductImages from '@/components/ProductImages'
 
 export default function SinglePage(): JSX.Element {
@@ -20,11 +21,11 @@ export default function SinglePage(): JSX.Element {
 					<h2 className="font-medium text-2xl">$49</h2>
 				</div>
 				<div className="h-[2px] bg-gray-100"></div>
-				{/* CustomizeProducts */}
+				<CustomizeProducts />
 				{/* Add */}
 				<div className="h-[2px] bg-gray-100"></div>
 				<div className="text-sm">
-					<h4 className="font-medium mb-4">Title</h4>
+					<h4 className="font-medium mb-4">PRODUCT INFO</h4>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
 						fugit, repudiandae ab quae perferendis quos beatae est voluptatem delectus
@@ -32,7 +33,7 @@ export default function SinglePage(): JSX.Element {
 					</p>
 				</div>
 				<div className="text-sm">
-					<h4 className="font-medium mb-4">Title</h4>
+					<h4 className="font-medium mb-4">RETURN & REFUND POLICY</h4>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
 						fugit, repudiandae ab quae perferendis quos beatae est voluptatem delectus
@@ -40,7 +41,7 @@ export default function SinglePage(): JSX.Element {
 					</p>
 				</div>
 				<div className="text-sm">
-					<h4 className="font-medium mb-4">Title</h4>
+					<h4 className="font-medium mb-4">SHIPPING INFO</h4>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
 						fugit, repudiandae ab quae perferendis quos beatae est voluptatem delectus
