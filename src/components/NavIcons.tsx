@@ -6,14 +6,14 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import CartModal from './CartModal'
 
-export default function NavIcons() {
+export default function NavIcons(): JSX.Element {
 	const [isProfileOpen, setIsProfileOpen] = useState(false)
 	const [isCartOpen, setIsCartOpen] = useState(false)
 	const router = useRouter()
 
-	const isLoggedIn = false //TEMP
+	const isLoggedIn = false
 
-	const handleProfile = () => {
+	const handleProfile = (): void => {
 		if (!isLoggedIn) {
 			router.push('/login')
 		}
@@ -48,7 +48,9 @@ export default function NavIcons() {
 			{/* CART */}
 			<div className="relative cursor-pointer">
 				<Image
-					onClick={() => setIsCartOpen(!isCartOpen)}
+					onClick={() => {
+						setIsCartOpen(!isCartOpen)
+					}}
 					src="/assets/cart.png"
 					alt="cart icon"
 					width={22}

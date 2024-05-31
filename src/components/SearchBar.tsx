@@ -2,15 +2,15 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-export default function SearchBar() {
+export default function SearchBar(): JSX.Element {
 	const router = useRouter()
 
-	const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSearch = (e: React.FormEvent<HTMLFormElement>): void => {
 		e.preventDefault()
 		const formData = new FormData(e.currentTarget)
 		const name = formData.get('name') as string
 
-		if (name) {
+		if (name !== '') {
 			router.push(`/list?name=${name}`)
 		}
 	}

@@ -49,7 +49,7 @@ const categories = [
 	},
 ]
 
-export default function CategoryList() {
+export default function CategoryList(): JSX.Element {
 	const containerRef = useRef<HTMLDivElement>(null)
 	const [isDragging, setIsDragging] = useState(false)
 	const [startX, setStartX] = useState(0)
@@ -57,25 +57,26 @@ export default function CategoryList() {
 
 	/* slider */
 
-	const handleMouseDown = (e: React.MouseEvent) => {
+	const handleMouseDown = (e: React.MouseEvent): void => {
 		e.preventDefault()
-		if (containerRef.current) {
+		if (containerRef.current !== null) {
 			setIsDragging(true)
 			setStartX(e.pageX - containerRef.current.offsetLeft)
 			setScrollLeft(containerRef.current.scrollLeft)
 		}
 	}
 
-	const handleMouseLeave = () => {
+	const handleMouseLeave = (): void => {
 		setIsDragging(false)
 	}
 
-	const handleMouseUp = () => {
+	const handleMouseUp = (): void => {
 		setIsDragging(false)
 	}
 
-	const handleMouseMove = (e: React.MouseEvent) => {
-		if (!isDragging || !containerRef.current) return
+	const handleMouseMove = (e: React.MouseEvent): void => {
+		if (!isDragging || containerRef.current === null || containerRef.current === undefined)
+			return
 		e.preventDefault()
 		const x = e.pageX - containerRef.current.offsetLeft
 		const walk = (x - startX) * 2

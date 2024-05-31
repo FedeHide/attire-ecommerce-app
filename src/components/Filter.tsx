@@ -1,4 +1,4 @@
-export default function Filter() {
+export default function Filter(): JSX.Element {
 	return (
 		<div className="mt-12 flex flex-wrap gap-8 justify-between">
 			<div className="flex gap-6 flex-wrap">

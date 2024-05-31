@@ -36,7 +36,7 @@ const products = [
 	},
 ]
 
-export default function ProductList() {
+export default function ProductList(): JSX.Element {
 	return (
 		<div className="flex gap-x-8 gap-y-16 justify-between flex-wrap mt-12">
 			{products.map((product) => (
@@ -73,7 +73,4 @@ export default function ProductList() {
 			))}
 		</div>
 	)
-}
-
-{
 }

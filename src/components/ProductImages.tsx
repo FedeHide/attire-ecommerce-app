@@ -25,7 +25,7 @@ const images = [
 	},
 ]
 
-export default function ProductImages() {
+export default function ProductImages(): JSX.Element {
 	const [index, setIndex] = useState(0)
 
 	return (
@@ -43,7 +43,9 @@ export default function ProductImages() {
 				{images.map((image, i) => (
 					<div
 						key={image.id}
-						onClick={() => setIndex(i)}
+						onClick={() => {
+							setIndex(i)
+						}}
 						className="w-1/4 h-32 relative gap-4 mt-8 cursor-pointer"
 					>
 						<Image

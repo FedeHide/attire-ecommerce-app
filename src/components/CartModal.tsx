@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 
-export default function CartModal() {
+export default function CartModal(): JSX.Element {
 	const cartItems = true
 
 	return (

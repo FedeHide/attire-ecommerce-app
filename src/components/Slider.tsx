@@ -31,7 +31,7 @@ const slides = [
 	},
 ]
 
-export default function Slider() {
+export default function Slider(): JSX.Element {
 	const [current, setCurrent] = useState(0)
 
 	useEffect(() => {
@@ -39,7 +39,9 @@ export default function Slider() {
 			setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1))
 		}, 5000)
 
-		return () => clearInterval(interval)
+		return () => {
+			clearInterval(interval)
+		}
 	}, [current])
 
 	return (
@@ -82,7 +84,9 @@ export default function Slider() {
 				{slides.map((slide, index) => (
 					<div
 						key={slide.id}
-						onClick={() => setCurrent(index)}
+						onClick={() => {
+							setCurrent(index)
+						}}
 						className={`w-3 h-3 rounded-full ring-1 ring-gray-600 cursor-pointer flex items-center justify-center ${current === index ? 'scale-150' : ''}`}
 					>
 						{current === index && (
