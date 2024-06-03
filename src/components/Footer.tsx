@@ -177,7 +177,11 @@ export default function Footer(): JSX.Element {
 							<h1 className="font-medium text-lg">{link.title}</h1>
 							<div className="flex flex-col gap-6">
 								{link.links.map((item) => (
-									<Link key={item.title} href={item.href}>
+									<Link
+										className="hover:underline"
+										key={item.title}
+										href={item.href}
+									>
 										{item.title}
 									</Link>
 								))}
