@@ -10,7 +10,7 @@ export default function Navbar(): JSX.Element {
 			{/* MOBILE */}
 			<div className="h-full flex items-center justify-between md:hidden">
 				<Link href="/">
-					<div className="text-2xl tracking-wide">PURRIS</div>
+					<div className="text-2xl tracking-wide">ATTIRE</div>
 				</Link>
 				<Menu />
 			</div>
@@ -19,8 +19,8 @@ export default function Navbar(): JSX.Element {
 				{/* LOGO & MENU */}
 				<div className="w-1/3 xl:w-1/2 flex items-center gap-12">
 					<Link className="flex items-center gap-3" href="/">
-						<Image src="/assets/logo.png" alt="logo" width={24} height={24} />
-						<div className="text-2xl tracking-wide">PURRIS</div>
+						<Image src="/assets/logo.webp" alt="logo" width={64} height={64} />
+						<div className="text-2xl tracking-wide">ATTIRE</div>
 					</Link>
 					<div className="hidden xl:flex gap-4">
 						<Link href="/">Home</Link>

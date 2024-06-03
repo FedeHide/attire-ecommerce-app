@@ -16,7 +16,12 @@ export default function ListPage(): JSX.Element {
 					</button>
 				</div>
 				<div className="relative w-1/3">
-					<Image src="/assets/woman.png" alt="Campaign" fill className="object-contain" />
+					<Image
+						src="/assets/woman.webp"
+						alt="Campaign"
+						fill
+						className="object-contain"
+					/>
 				</div>
 			</div>
 			{/* FILTER */}

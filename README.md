@@ -1,28 +1,22 @@
-# Title
+# Attire - ecommerce-app (FAKE)
 
-### Check the site [Here](https://page.vercel.app/ " title")
+### Check the site [Here](https://page.vercel.app/ " Attire - ecommerce-app")
 
 ## Introduction
-This project is ...
+Practice Ecommerce Project: This repository serves as a sandbox for experimenting with ecommerce website development. It contains dummy data and serves no real-world sales purpose.
 
 ## Technologies Used
 <div>
 	<a href="https://skillicons.dev">
-		<img src="https://skillicons.dev/icons?i=nextjs,ts,sass" />
+		<img src="https://skillicons.dev/icons?i=nextjs,ts,tailwind,sass" />
 	</a>
 </div>
 
 ------------
 
-<!-- [![palindome-checker-ss.webp](https://raw.githubusercontent.com/FedeHide/palindrome-checker/main/public/assets/palindome-checker-ss.webp)](https://palindrome-checker-eight.vercel.app/) -->
+[![attire-ecommerce-app-ss.webp](https://raw.githubusercontent.com/FedeHide/attire-ecommerce-app/main/public/assets/attire-ecommerce-app-ss.webp)](https://palindrome-checker-eight.vercel.app/)
 
-## Features
-
-- 📑 
 
 ## License
 
 MIT License © 2024-Present [Fede Hide](https://github.com/FedeHide)
-
-
-> This is a [freecodecamp](https://www.freecodecamp.org/ "freecodecamp") assignment. All the projects and contact details given are **not real**.

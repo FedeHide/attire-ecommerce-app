@@ -151,10 +151,10 @@ export default function Footer(): JSX.Element {
 				{/* TOP-LEFT */}
 				<div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
 					<Link href="/">
-						<div className="text-2xl tracking-wide">PURRIS</div>
+						<div className="text-2xl tracking-wide">ATTIRE</div>
 					</Link>
 					<p>1234 Maple Street, Oakwood Center, Pineville, TX 75001, United States</p>
-					<span className="font-semibold">info@purris.com</span>
+					<span className="font-semibold">info@ATTIRE.com</span>
 					<span className="font-semibold">+1 234 567 890</span>
 					<div className="flex gap-6">
 						{footerSocials.map((social) => (
@@ -213,7 +213,7 @@ export default function Footer(): JSX.Element {
 			</div>
 			{/* BOTTOM */}
 			<div className="flex flex-col md:flex-row items-center justify-between gap-8 mt-16">
-				<div>©️ 2024 PURRIS Shop</div>
+				<div>©️ 2024 ATTIRE Shop</div>
 				<div className="flex flex-col gap-8 md:flex-row">
 					<div>
 						<span className="text-gray-500 mr-4">Language</span>
