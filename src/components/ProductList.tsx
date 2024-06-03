@@ -66,7 +66,7 @@ export default function ProductList(): JSX.Element {
 						<span className="font-semibold">${product.price}</span>
 					</div>
 					<div className="text-sm text-gray-500">{product.description}</div>
-					<button className="w-max rounded-2xl ring-1 ring-clrPrimary text-clrPrimary py-2 px-4 text-xs hover:bg-clrPrimary hover:text-white transition-colors ease-in duration-200">
+					<button className="w-max rounded-2xl ring-1 ring-clrPrimary text-clrPrimary py-2 px-4 text-xs hover:bg-clrPrimary md:active:bg-clrPrimary hover:text-white md:active:text-white transition-colors ease-in duration-200">
 						Add to Cart
 					</button>
 				</Link>

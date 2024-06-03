@@ -27,7 +27,7 @@ export default function SearchBar(): JSX.Element {
 				placeholder="Search"
 			/>
 			<button className="cursor-pointer">
-				<Image src="/assets/search.png" alt="search" width={16} height={16} />
+				<Image src="/assets/icons/search-icon.png" alt="search" width={16} height={16} />
 			</button>
 		</form>
 	)

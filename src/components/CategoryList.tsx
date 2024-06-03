@@ -2,7 +2,9 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
+import LeftArrowIcon from '../../public/assets/icons/LeftArrowIcon'
+import RightArrowIcon from '../../public/assets/icons/RightArrowIcon'
 
 const categories = [
 	{
@@ -62,56 +64,42 @@ const categories = [
 ]
 
 export default function CategoryList(): JSX.Element {
-	const containerRef = useRef<HTMLDivElement>(null)
-	const [isDragging, setIsDragging] = useState(false)
-	const [startX, setStartX] = useState(0)
-	const [scrollLeft, setScrollLeft] = useState(0)
+	const sliderRef = useRef<HTMLDivElement>(null)
+	// const [currentIndex, setCurrentIndex] = useState(0)
 
-	/* slider */
-
-	const handleMouseDown = (e: React.MouseEvent): void => {
-		e.preventDefault()
-		if (containerRef.current !== null) {
-			setIsDragging(true)
-			setStartX(e.pageX - containerRef.current.offsetLeft)
-			setScrollLeft(containerRef.current.scrollLeft)
+	const scrollLeft = (): void => {
+		if (sliderRef.current !== null) {
+			const containerWidth = sliderRef.current.clientWidth
+			sliderRef.current.scrollBy({
+				left: -containerWidth + 20,
+				behavior: 'smooth',
+			})
 		}
 	}
 
-	const handleMouseLeave = (): void => {
-		setIsDragging(false)
-	}
-
-	const handleMouseUp = (): void => {
-		setIsDragging(false)
-	}
-
-	const handleMouseMove = (e: React.MouseEvent): void => {
-		if (!isDragging || containerRef.current === null || containerRef.current === undefined)
-			return
-		e.preventDefault()
-		const x = e.pageX - containerRef.current.offsetLeft
-		const walk = (x - startX) * 2
-		containerRef.current.scrollLeft = scrollLeft - walk
+	const scrollRight = (): void => {
+		if (sliderRef.current !== null) {
+			const containerWidth = sliderRef.current.clientWidth
+			sliderRef.current.scrollBy({
+				left: containerWidth + 20,
+				behavior: 'smooth',
+			})
+		}
 	}
 
 	return (
-		<div
-			onMouseDown={handleMouseDown}
-			onMouseLeave={handleMouseLeave}
-			onMouseUp={handleMouseUp}
-			onMouseMove={handleMouseMove}
-			ref={containerRef}
-			className="px-4 overflow-x-scroll scrollbar-hide"
-		>
-			<div className="flex gap-4 md:gap-8">
+		<div className="slider-wrapper px-5">
+			<button onClick={scrollLeft} className="mx-5 slide-button prev-slide">
+				<LeftArrowIcon />
+			</button>
+			<div ref={sliderRef} className="flex  gap-5 md:gap-8 overflow-x-scroll scrollbar-hide">
 				{categories.map((category) => (
 					<Link
 						key={category.id}
-						className="flex-shrink-0 w-full sm:w-1/2 lg:h-1/4 xl:w-1/6"
+						className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 xl:w-1/6"
 						href="/list?cat=test"
 					>
-						<div className="relative bg-slate-100 w-full h-96">
+						<div className="relative bg-slate-100 w-full h-96 right-1">
 							<Image
 								className="object-cover"
 								src={category.image}
@@ -124,6 +112,9 @@ export default function CategoryList(): JSX.Element {
 					</Link>
 				))}
 			</div>
+			<button onClick={scrollRight} className="mx-5 slide-button next-slide">
+				<RightArrowIcon />
+			</button>
 		</div>
 	)
 }

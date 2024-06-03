@@ -26,7 +26,7 @@ export default function NavIcons(): JSX.Element {
 			<Image
 				onClick={handleProfile}
 				className="cursor-pointer"
-				src="/assets/profile.png"
+				src="/assets/icons/profile-icon.png"
 				alt="profile icon"
 				width={22}
 				height={22}
@@ -40,7 +40,7 @@ export default function NavIcons(): JSX.Element {
 			{/* NOTIFICATION */}
 			<Image
 				className="cursor-pointer"
-				src="/assets/notification.png"
+				src="/assets/icons/notification-icon.png"
 				alt="notification icon"
 				width={22}
 				height={22}
@@ -52,7 +52,7 @@ export default function NavIcons(): JSX.Element {
 					setIsCartOpen(!isCartOpen)
 				}}
 			>
-				<Image src="/assets/cart.png" alt="cart icon" width={22} height={22} />
+				<Image src="/assets/icons/cart-icon.png" alt="cart icon" width={22} height={22} />
 				<div className="absolute -top-4 -right-4 w-6 h-6 bg-clrPrimary rounded-full text-white text-sm flex items-center justify-center">
 					2
 				</div>

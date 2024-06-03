@@ -10,7 +10,7 @@ export default function Menu(): JSX.Element {
 	return (
 		<div>
 			<Image
-				src="/assets/menu.png"
+				src="/assets/icons/menu-icon.png"
 				alt="menu"
 				width={28}
 				height={28}

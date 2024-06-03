@@ -44,7 +44,7 @@ export default function Add(): JSX.Element {
 						Only <span className="text-orange-500">4 items</span> left!
 					</div>
 				</div>
-				<button className="w-36 text-sm rounded-3xl ring-1 ring-clrPrimary text-clrPrimary py-2 px-4 hover:bg-clrPrimary hover:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:text-white disabled:ring-none">
+				<button className="w-36 text-sm rounded-3xl ring-1 ring-clrPrimary text-clrPrimary py-2 px-4 hover:bg-clrPrimary md:active:bg-clrPrimary hover:text-white md:active:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:text-white disabled:ring-none">
 					Add to Cart
 				</button>
 			</div>
