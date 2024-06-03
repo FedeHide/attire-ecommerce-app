@@ -1,6 +1,6 @@
 # Attire - ecommerce-app (FAKE)
 
-### Check the site [Here](https://page.vercel.app/ " Attire - ecommerce-app")
+### Check the site [Here](https://page.vercel.app/ " Attire - ecommerce-app")<!-- cambiar url -->
 
 ## Introduction
 Practice Ecommerce Project: This repository serves as a sandbox for experimenting with ecommerce website development. It contains dummy data and serves no real-world sales purpose.
@@ -15,7 +15,7 @@ Practice Ecommerce Project: This repository serves as a sandbox for experimentin
 ------------
 
 [![attire-ecommerce-app-ss.webp](https://raw.githubusercontent.com/FedeHide/attire-ecommerce-app/main/public/assets/attire-ecommerce-app-ss.webp)](https://palindrome-checker-eight.vercel.app/)
-
+<!-- cambiar url -->
 
 ## License
 

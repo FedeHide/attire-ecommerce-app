@@ -11,12 +11,13 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-	title: 'Palindrome Checker | freeCodeCamp' /* cambiar */,
-	description: 'This is a Palindrome checker, a freecodecamp assignment' /* cambiar */,
+	title: 'ATTIRE | ecommerce-app',
+	description:
+		'Practice Ecommerce Project: This repository serves as a sandbox for experimenting with ecommerce website development. It contains dummy data and serves no real-world sales purpose.',
 	manifest: '/manifest.json',
 	robots: 'index, follow',
 	authors: [{ name: 'FedeHide' }],
-	keywords: ['Palindrome', 'Checker', 'freeCodeCamp'] /* cambiar */,
+	keywords: ['attire', 'clothes', 'shop'],
 	icons: {
 		apple: '/apple-touch-icon.png',
 		icon: '/favicon.ico',
@@ -24,10 +25,11 @@ export const metadata: Metadata = {
 	openGraph: {
 		url: 'https://palindrome-checker.vercel.app/' /* cambiar */,
 		type: 'website',
-		title: 'Palindrome Checker | freeCodeCamp' /* cambiar */,
-		description: 'This is a Palindrome checker, a freecodecamp assignment' /* cambiar */,
+		title: 'ATTIRE | ecommerce-app',
+		description:
+			'Practice Ecommerce Project: This repository serves as a sandbox for experimenting with ecommerce website development. It contains dummy data and serves no real-world sales purpose.',
 		images: [
-			'https://raw.githubusercontent.com/FedeHide/pokemon-search/main/public/assets/pokemon-search-screenshot.webp' /* cambiar */,
+			'https://raw.githubusercontent.com/FedeHide/attire-ecommerce-app/main/public/assets/attire-ecommerce-app-ss.webp',
 		],
 	},
 	twitter: {
@@ -43,10 +45,7 @@ export default function RootLayout({
 		<html lang="en">
 			<head>
 				<meta name="apple-mobile-web-app-capable" content="yes" />
-				<meta
-					name="apple-mobile-web-app-title"
-					content="Pokemon Search App" /* cambiar */
-				/>
+				<meta name="apple-mobile-web-app-title" content="ATTIRE | ecommerce-app" />
 				<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 			</head>
 			<body className={inter.className}>
