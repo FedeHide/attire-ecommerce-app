@@ -1,6 +1,6 @@
-import CategoryList from '@/components/CategoryList'
+import CategoryList from '@/components/categoryList/CategoryList'
 import ProductList from '@/components/ProductList'
-import Slider from '@/components/Slider'
+import Slider from '@/components/heroSlider/Slider'
 
 export default function Home(): JSX.Element {
 	return (
