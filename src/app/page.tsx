@@ -1,8 +1,28 @@
+'use client'
+
 import CategoryList from '@/components/categoryList/CategoryList'
 import ProductList from '@/components/ProductList'
 import Slider from '@/components/heroSlider/Slider'
+import { useContext, useEffect } from 'react'
+import { WixClientContext } from '@/context/wixContext'
 
 export default function Home(): JSX.Element {
+	const wixClient = useContext(WixClientContext)
+
+	useEffect(() => {
+		const getProducts = async (): Promise<void> => {
+			try {
+				const res = await wixClient.products.queryProducts().find()
+				console.log(res)
+			} catch (error) {
+				console.error('Error fetching products:', error)
+			}
+		}
+
+		// eslint-disable-next-line @typescript-eslint/no-floating-promises
+		getProducts()
+	}, [wixClient])
+
 	return (
 		<>
 			<div>
