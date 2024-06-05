@@ -7,7 +7,6 @@ import Cookies from 'js-cookie'
 import { createContext } from 'react'
 import type { ReactNode } from 'react'
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/strict-boolean-expressions
 const refreshToken = JSON.parse(Cookies.get('refreshToken') ?? '{}') as RefreshToken
 
 const wixClient = createClient({
@@ -17,8 +16,7 @@ const wixClient = createClient({
 		// currentCart
 	},
 	auth: OAuthStrategy({
-		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-		clientId: process.env.NEXT_PUBLIC_WIX_CLIENT_ID!,
+		clientId: process.env.NEXT_PUBLIC_WIX_CLIENT_ID ?? '',
 		tokens: {
 			refreshToken,
 			accessToken: {

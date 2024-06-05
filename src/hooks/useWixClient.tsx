@@ -1,9 +1,9 @@
 'use client'
 
 import { WixClientContext } from '@/context/wixContext'
+import type { WixClient } from '@wix/sdk'
 import { useContext } from 'react'
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export const useWixClient = () => {
+export const useWixClient = (): WixClient => {
 	return useContext(WixClientContext)
 }
