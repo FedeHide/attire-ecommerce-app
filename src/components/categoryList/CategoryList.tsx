@@ -45,10 +45,13 @@ export default function CategoryList(): JSX.Element {
 						<div className="relative bg-slate-100 w-full h-96 right-1">
 							<Image
 								className="object-cover"
-								src={category.image}
+								src={category.src}
 								alt={category.name}
 								fill
 								sizes="20vw"
+								onError={(e) => {
+									e.currentTarget.src = category.src2
+								}}
 							/>
 						</div>
 						<h1 className="mt-8 font-light text-xl tracking-wide">{category.name}</h1>
