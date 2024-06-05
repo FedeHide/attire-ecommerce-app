@@ -8,7 +8,7 @@ import { createContext } from 'react'
 import type { ReactNode } from 'react'
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/strict-boolean-expressions
-const refreshToken = JSON.parse(Cookies.get('refreshToken') || '{}') as RefreshToken
+const refreshToken = JSON.parse(Cookies.get('refreshToken') ?? '{}') as RefreshToken
 
 const wixClient = createClient({
 	modules: {

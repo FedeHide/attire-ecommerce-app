@@ -3,11 +3,11 @@
 import CategoryList from '@/components/categoryList/CategoryList'
 import ProductList from '@/components/ProductList'
 import Slider from '@/components/heroSlider/Slider'
-import { useContext, useEffect } from 'react'
-import { WixClientContext } from '@/context/wixContext'
+import { useEffect } from 'react'
+import { useWixClient } from '@/hooks/useWixClient'
 
 export default function Home(): JSX.Element {
-	const wixClient = useContext(WixClientContext)
+	const wixClient = useWixClient()
 
 	useEffect(() => {
 		const getProducts = async (): Promise<void> => {
