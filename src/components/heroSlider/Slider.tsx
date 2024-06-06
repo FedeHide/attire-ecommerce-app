@@ -48,6 +48,8 @@ export default function Slider(): JSX.Element {
 								alt={slide.title}
 								fill
 								sizes="100%"
+								priority
+								fetchPriority="high"
 								className="object-cover"
 							/>
 						</div>
