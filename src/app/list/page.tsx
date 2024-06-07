@@ -1,5 +1,5 @@
 import Filter from '@/components/Filter'
-import ProductList from '@/components/ProductList'
+import ProductList from '@/components/homepage/ProductList'
 import Image from 'next/image'
 
 export default function ListPage(): JSX.Element {
@@ -28,7 +28,8 @@ export default function ListPage(): JSX.Element {
 			<Filter />
 			{/* PRODUCTS */}
 			<h1 className="mt-12 text-xl font-semibold">Shoes For You!</h1>
-			<ProductList />
+			{/* // TODO: render productList depending slug */}
+			<ProductList categoryId={process.env.NEW_PRODUCTS_CATEGORY_ID ?? ''} limit={4} />
 		</div>
 	)
 }

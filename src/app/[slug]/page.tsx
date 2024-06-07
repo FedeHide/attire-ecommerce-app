@@ -1,6 +1,6 @@
-import Add from '@/components/Add'
-import CustomizeProducts from '@/components/CustomizeProducts'
-import ProductImages from '@/components/ProductImages'
+import Add from '@/components/productPage/Add'
+import CustomizeProducts from '@/components/productPage/CustomizeProducts'
+import ProductImages from '@/components/productPage/ProductImages'
 
 export default function SinglePage(): JSX.Element {
 	return (

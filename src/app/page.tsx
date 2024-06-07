@@ -1,5 +1,5 @@
 import CategoryList from '@/components/categoryList/CategoryList'
-import ProductList from '@/components/ProductList'
+import ProductList from '@/components/homepage/ProductList'
 import Slider from '@/components/heroSlider/Slider'
 // import { wixClientServer } from '@/lib/wixClientServer'
 import { Suspense } from 'react'

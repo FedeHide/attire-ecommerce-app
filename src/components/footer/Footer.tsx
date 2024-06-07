@@ -59,7 +59,9 @@ export default function Footer(): JSX.Element {
 					</p>
 					<div className="flex">
 						<input type="text" placeholder="Email address" className="p-4 w-3/4" />
-						<button className="w-1/4 bg-clrPrimary text-white">JOIN</button>
+						<button className="w-1/4 bg-clrPrimary hover:brightness-110 text-white">
+							JOIN
+						</button>
 					</div>
 					<span className="font-semibold">Payments</span>
 					<div className="flex justify-between w-auto h-auto">
