@@ -48,14 +48,20 @@ export default async function ProductList({
 					</div>
 					<div className="flex justify-between sm:gap-4">
 						<span className="font-medium">{product.name}</span>
-						<div className="flex flex-row items-center gap-4 md:flex-row md:gap-4 lg:flex-col xl:flex-row ">
-							{product.price?.discountedPrice !== product.price?.price && (
+						{product.price?.discountedPrice !== product.price?.price ? (
+							<div className="flex flex-row items-center gap-4 md:flex-row md:gap-4 lg:flex-col xl:flex-row ">
 								<span className="font-semibold text-gray-500 line-through">
+									${product.price?.price}
+								</span>
+								<span className="font-semibold">
 									${product.price?.discountedPrice}
 								</span>
-							)}
-							<span className="font-semibold">${product.price?.price}</span>
-						</div>
+							</div>
+						) : (
+							<div className="flex flex-row items-center gap-4 md:flex-row md:gap-4 lg:flex-col xl:flex-row ">
+								<span className="font-semibold">${product.price?.price}</span>
+							</div>
+						)}
 					</div>
 					{product.additionalInfoSections !== undefined &&
 						product.additionalInfoSections !== null && (
