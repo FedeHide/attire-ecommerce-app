@@ -1,4 +1,4 @@
-import Add from '@/components/productPage/Add'
+import AddItem from '@/components/productPage/AddItem'
 import CustomizeProducts from '@/components/productPage/CustomizeProducts'
 import ProductImages from '@/components/productPage/ProductImages'
 
@@ -23,7 +23,7 @@ export default function SinglePage(): JSX.Element {
 				</div>
 				<div className="h-[2px] bg-gray-100"></div>
 				<CustomizeProducts />
-				<Add />
+				<AddItem />
 				<div className="h-[2px] bg-gray-100"></div>
 				<div className="text-sm">
 					<h4 className="font-medium mb-4">PRODUCT INFO</h4>

@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 
-export default function Add(): JSX.Element {
+export default function AddItem(): JSX.Element {
 	const [quantity, setQuantity] = useState(1)
 
 	const stock = 4
