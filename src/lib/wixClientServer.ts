@@ -7,10 +7,7 @@ export const wixClientServer = async (): Promise<
 	WixClient<
 		undefined,
 		IOAuthStrategy,
-		{
-			products: typeof products
-			collections: typeof collections
-		}
+		{ products: typeof products; collections: typeof collections }
 	>
 > => {
 	let refreshToken: RefreshToken = { value: '', role: TokenRole.VISITOR }

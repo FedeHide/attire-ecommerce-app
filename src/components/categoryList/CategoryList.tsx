@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { wixClientServer } from '@/lib/wixClientServer'
 
-export default async function CategoryList(): Promise<JSX.Element> {
-	const wixClient = await wixClientServer()
-	const categories = await wixClient.collections.queryCollections().find()
-	const filteredCategories = categories.items.filter((category) => category.slug !== 'new')
+interface CategoryListProps {
+	categories: any[]
+}
+
+export const CategoryList: React.FC<CategoryListProps> = ({ categories }) => {
 	return (
 		<>
-			{filteredCategories.map((category) => (
+			{categories.map((category) => (
 				<Link
 					key={category._id}
 					className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 xl:w-1/6"
