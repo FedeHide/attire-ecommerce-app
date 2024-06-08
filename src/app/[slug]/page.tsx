@@ -43,27 +43,27 @@ export default async function SinglePage({
 				<AddItem />
 				<div className="h-[2px] bg-gray-100"></div>
 				<div className="text-sm">
-					<h4 className="font-medium mb-4">PRODUCT INFO</h4>
+					<h4 className="font-medium mb-4">TERMS & CONDITIONS</h4>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
-						fugit, repudiandae ab quae perferendis quos beatae est voluptatem delectus
-						velit? Eius natus nulla cupiditate dolore.
+						By using our website and making a purchase, you agree to our Terms &
+						Conditions. Please review them to understand your rights and obligations.
 					</p>
 				</div>
 				<div className="text-sm">
 					<h4 className="font-medium mb-4">RETURN & REFUND POLICY</h4>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
-						fugit, repudiandae ab quae perferendis quos beatae est voluptatem delectus
-						velit? Eius natus nulla cupiditate dolore.
+						We accept returns within 30 days of purchase for a full refund. Items must
+						be unused and in original packaging. Return shipping is at customer&apos;s
+						expense. Contact us at info@ATTIRE.com for return instructions.
 					</p>
 				</div>
 				<div className="text-sm">
 					<h4 className="font-medium mb-4">SHIPPING INFO</h4>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
-						fugit, repudiandae ab quae perferendis quos beatae est voluptatem delectus
-						velit? Eius natus nulla cupiditate dolore.
+						We offer worldwide shipping with standard delivery times of 5-10 business
+						days. Orders are processed within 2 business days. Shipping costs are
+						calculated at checkout. Track your order via the link provided in your
+						confirmation email.
 					</p>
 				</div>
 			</div>
