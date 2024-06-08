@@ -4,14 +4,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import DOMPurify from 'isomorphic-dompurify'
 
-const PRODUCT_PER_PAGE = 20
+const PRODUCT_PER_PAGE = 40
 
 export default async function ProductList({
 	categoryId,
 	limit,
+	searchParams,
 }: {
-	categoryId: string
+	categoryId: string | undefined | null | boolean
 	limit?: number
+	searchParams?: any
 }): Promise<JSX.Element> {
 	const wixClient = await wixClientServer()
 	const res = await wixClient.products
