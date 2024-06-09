@@ -15,8 +15,8 @@ export default async function SinglePage({
 	if (products.items.length === 0) {
 		return notFound()
 	}
-
 	const product = products.items[0]
+
 	return (
 		<div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16">
 			{/* IMG */}
@@ -26,8 +26,6 @@ export default async function SinglePage({
 			{/* ProductDetails */}
 			<div className="w-full lg:w-1/2 flex flex-col gap-6">
 				<h1 className="text-4xl font-medium">{product.name}</h1>
-				<p className="text-gray-500">{product.description}</p>
-				<div className="h-[2px] bg-gray-100"></div>
 				{product.price?.price === product.price?.discountedPrice ? (
 					<h2 className="font-medium text-2xl">${product.price?.price}</h2>
 				) : (
@@ -39,7 +37,15 @@ export default async function SinglePage({
 					</div>
 				)}
 				<div className="h-[2px] bg-gray-100"></div>
-				<CustomizeProducts />
+				<p className="font-bold">Description</p>
+				<p className="text-gray-500">{product.description?.replace(/<[^>]*>?/gm, '')}</p>
+				{product.variants !== null && product.productOptions !== null && (
+					<CustomizeProducts
+						productId={product._id}
+						variants={product.variants}
+						productOptions={product.productOptions}
+					/>
+				)}
 				<AddItem />
 				<div className="h-[2px] bg-gray-100"></div>
 				<div className="text-sm">
