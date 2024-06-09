@@ -1,17 +1,27 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-export default function AddItem(): JSX.Element {
+export default function AddItem({
+	productId,
+	variantId,
+	stockNumber,
+}: {
+	productId: string | undefined
+	variantId: string
+	stockNumber: number
+}): JSX.Element {
 	const [quantity, setQuantity] = useState(1)
 
-	const stock = 4
+	useEffect(() => {
+		setQuantity(1)
+	}, [variantId])
 
 	const handleQuantity = (type: 'd' | 'i'): void => {
 		if (type === 'd' && quantity > 1) {
 			setQuantity((prev) => prev - 1)
 		}
 
-		if (type === 'i' && quantity < stock) {
+		if (type === 'i' && quantity < stockNumber) {
 			setQuantity((prev) => prev + 1)
 		}
 	}
@@ -41,7 +51,7 @@ export default function AddItem(): JSX.Element {
 						</button>
 					</div>
 					<div className="text-xs">
-						Only <span className="text-orange-500">4 items</span> left!
+						Only <span className="text-orange-500">{stockNumber} items</span> left!
 					</div>
 				</div>
 				<button className="w-36 text-sm rounded-3xl ring-1 ring-clrPrimary text-clrPrimary py-2 px-4 hover:bg-clrPrimary md:active:bg-clrPrimary hover:text-white md:active:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:text-white disabled:ring-none">

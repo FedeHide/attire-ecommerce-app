@@ -1,7 +1,8 @@
 'use client'
 
 import type { products } from '@wix/stores'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import AddItem from './AddItem'
 
 type Choices = Record<string, string>
 
@@ -15,6 +16,19 @@ export default function CustomizeProducts({
 	productOptions: products.ProductOption[] | undefined
 }): JSX.Element {
 	const [selectedOptions, setSelectedOptions] = useState<Choices>({})
+	const [selectedVariant, setSelectedVariant] = useState<products.Variant>()
+
+	useEffect(() => {
+		const variant = variants?.find((variant) => {
+			const variantChoices = variant.choices
+
+			if (variantChoices == null) return false
+			return Object.entries(selectedOptions).every(
+				([key, value]) => variantChoices[key] === value,
+			)
+		})
+		setSelectedVariant(variant)
+	}, [selectedOptions, variants])
 
 	const handleOptionSelect = (optionType: string, choice: string): void => {
 		setSelectedOptions((prev) => {
@@ -115,43 +129,11 @@ export default function CustomizeProducts({
 					</div>
 				)
 			})}
+			<AddItem
+				productId={productId}
+				variantId={selectedVariant?._id ?? '00000000-0000-0000-0000-000000000000'}
+				stockNumber={selectedVariant?.stock?.quantity ?? 0}
+			/>
 		</div>
 	)
 }
-
-/* 
-			<ul className="flex items-center gap-3">
-				<li className="w-8 h-8 rounded-full ring-1 ring-gray-300 cursor-pointer relative bg-red-500">
-					<div className="absolute w-10 h-10 rounded-full ring-2 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-				</li>
-				<li className="w-8 h-8 rounded-full ring-1 ring-gray-300 cursor-pointer relative bg-purple-800"></li>
-				<li className="w-8 h-8 rounded-full ring-1 ring-gray-300 cursor-not-allowed relative bg-white">
-					<div className="absolute w-10 h-[2px] bg-red-400 rotate-45 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-				</li>
-			</ul> */
-
-/* <h4 className="font-medium">Choose a size</h4>
-	<ul className="flex items-center gap-3">
-		<li className="ring-1 ring-clrPrimary text-clrPrimary rounded-md py-1 px-4 text-sm cursor-pointer">
-			Small
-		</li>
-		<li className="ring-1 ring-clrPrimary text-white bg-clrPrimary rounded-md py-1 px-4 text-sm cursor-pointer">
-			Medium
-		</li>
-		<li className="ring-1 ring-pink-200 text-white bg-pink-200 rounded-md py-1 px-4 text-sm cursor-not-allowed">
-			Large
-		</li>
-	</ul> */
-
-// (
-// 	<div
-// 		key={choice.value}
-// 		onClick={() =>
-// 			handleOptionSelect(option.name!, choice.description!)
-// 		}
-// 	>
-// 		{choice.description}
-// 		{disabled && ' disabled'}
-// 		{selected && ' selected'}
-// 	</div>
-// )
