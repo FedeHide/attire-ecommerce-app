@@ -2,6 +2,7 @@ import AddItem from '@/components/productPage/AddItem'
 import CustomizeProducts from '@/components/productPage/CustomizeProducts'
 import ProductImages from '@/components/productPage/ProductImages'
 import { wixClientServer } from '@/lib/wixClientServer'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 export default async function SinglePage({
@@ -60,7 +61,15 @@ export default async function SinglePage({
 					<p>
 						We accept returns within 30 days of purchase for a full refund. Items must
 						be unused and in original packaging. Return shipping is at customer&apos;s
-						expense. Contact us at info@ATTIRE.com for return instructions.
+						expense. Contact us at{' '}
+						<Link
+							className="text-blue-500 hover:text-blue-300"
+							href="mailto:info@ATTIRE.com"
+							target="_blank"
+						>
+							info@ATTIRE.com
+						</Link>{' '}
+						for return instructions.
 					</p>
 				</div>
 				<div className="text-sm">
