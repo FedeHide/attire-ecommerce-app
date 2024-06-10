@@ -21,7 +21,7 @@ export default function NavIcons(): JSX.Element {
 	}
 
 	return (
-		<div className="flex items-center gap-4 xl:gap-6 relative">
+		<section className="flex items-center gap-4 xl:gap-6 relative">
 			{/* PROFILE */}
 			<Image
 				onClick={handleProfile}
@@ -58,6 +58,6 @@ export default function NavIcons(): JSX.Element {
 				</div>
 			</div>
 			{isCartOpen && <CartModal />}
-		</div>
+		</section>
 	)
 }

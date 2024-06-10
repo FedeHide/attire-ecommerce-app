@@ -8,7 +8,7 @@ export default function Menu(): JSX.Element {
 	const [open, setOpen] = useState(false)
 
 	return (
-		<div>
+		<section>
 			<Image
 				src="/assets/icons/menu-icon.png"
 				alt="menu"
@@ -30,6 +30,6 @@ export default function Menu(): JSX.Element {
 					<Link href="/">Cart(1)</Link>
 				</div>
 			)}
-		</div>
+		</section>
 	)
 }

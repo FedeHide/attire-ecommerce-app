@@ -6,16 +6,16 @@ export default function CartModal(): JSX.Element {
 	const cartItems = true
 
 	return (
-		<div className="w-max absolute p-4 rounded-md shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-white top-12 right-0 flex flex-col gap-6 z-20">
+		<section className="w-max absolute p-4 rounded-md shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-white top-12 right-0 flex flex-col gap-6 z-20">
 			{!cartItems ? (
-				<div>Cart is Empty</div>
+				<p>Cart is Empty</p>
 			) : (
 				<>
 					<h2 className="text-xl">Shopping Cart</h2>
 					{/* LIST */}
-					<div className="flex flex-col gap-8">
+					<section className="flex flex-col gap-8">
 						{/* ITEM */}
-						<div className="flex gap-4">
+						<article className="flex gap-4">
 							<Image
 								src="https://images.pexels.com/photos/2932727/pexels-photo-2932727.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 								width={72}
@@ -23,9 +23,9 @@ export default function CartModal(): JSX.Element {
 								alt="Product"
 								className="object-cover rounded-md"
 							/>
-							<div className="flex flex-col justify-between w-full">
+							<section className="flex flex-col justify-between w-full">
 								{/* TOP */}
-								<div>
+								<article>
 									{/* TITLE */}
 									<div className="flex items-center justify-between gap-8">
 										<h3 className="font-semibold">Classic Hoddie</h3>
@@ -35,14 +35,14 @@ export default function CartModal(): JSX.Element {
 									<div className="text-sm text-gray-500">
 										<p>available</p>
 									</div>
-								</div>
+								</article>
 								{/* BOTTOM */}
-								<div className="flex justify-between text-sm">
+								<article className="flex justify-between text-sm">
 									<span className="text-gray-500">Qty. 2</span>
 									<span className="text-blue-500">Remove</span>
-								</div>
-							</div>
-						</div>
+								</article>
+							</section>
+						</article>
 						{/* ITEM */}
 						<div className="flex gap-4">
 							<Image
@@ -72,7 +72,7 @@ export default function CartModal(): JSX.Element {
 								</div>
 							</div>
 						</div>
-					</div>
+					</section>
 					{/* LIST BOTTOM */}
 					<div>
 						<div className="flex items-center justify-between font-semibold">
@@ -93,6 +93,6 @@ export default function CartModal(): JSX.Element {
 					</div>
 				</>
 			)}
-		</div>
+		</section>
 	)
 }

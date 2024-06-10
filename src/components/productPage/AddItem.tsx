@@ -27,7 +27,7 @@ export default function AddItem({
 	}
 
 	return (
-		<div className="flex flex-col gap-4">
+		<section className="flex flex-col gap-4">
 			<h4 className="font-medium">Choose a Quantity</h4>
 			<div className="flex justify-between">
 				<div className="flex items-center gap-4">
@@ -58,6 +58,6 @@ export default function AddItem({
 					Add to Cart
 				</button>
 			</div>
-		</div>
+		</section>
 	)
 }

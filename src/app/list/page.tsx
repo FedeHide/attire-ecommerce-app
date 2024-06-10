@@ -1,17 +1,14 @@
 import Filter from '@/components/Filter'
 import ProductList from '@/components/ProductList'
 import Skeleton from '@/components/Skeleton'
+import type { listSearchParamsProps } from '@/interfaces/searchParamsInterface'
 import { wixClientServer } from '@/lib/wixClientServer'
 import Image from 'next/image'
 import { Suspense } from 'react'
 
-interface searchParams {
-	searchParams: {
-		cat: string | undefined | null
-	}
-}
-
-export default async function ListPage({ searchParams }: searchParams): Promise<JSX.Element> {
+export default async function ListPage({
+	searchParams,
+}: listSearchParamsProps): Promise<JSX.Element> {
 	const wixClient = await wixClientServer()
 	const category = await wixClient.collections.getCollectionBySlug(
 		searchParams.cat ?? 'all-products',

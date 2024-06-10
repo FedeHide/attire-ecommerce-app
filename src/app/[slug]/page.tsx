@@ -19,13 +19,13 @@ export default async function SinglePage({
 	const product = products.items[0]
 
 	return (
-		<div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16">
+		<section className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16">
 			{/* IMG */}
-			<div className="w-full lg:w-1/2 lg:sticky top-20 h-max">
+			<section className="w-full lg:w-1/2 lg:sticky top-20 h-max">
 				<ProductImages items={product.media?.items} />
-			</div>
+			</section>
 			{/* ProductDetails */}
-			<div className="w-full lg:w-1/2 flex flex-col gap-6">
+			<section className="w-full lg:w-1/2 flex flex-col gap-6">
 				<h1 className="text-4xl font-medium">{product.name}</h1>
 				{product.price?.price === product.price?.discountedPrice ? (
 					<h2 className="font-medium text-2xl">${product.price?.price}</h2>
@@ -54,14 +54,14 @@ export default async function SinglePage({
 					/>
 				)}
 				<div className="h-[2px] bg-gray-100"></div>
-				<div className="text-sm">
+				<article className="text-sm">
 					<h4 className="font-medium mb-4">TERMS & CONDITIONS</h4>
 					<p>
 						By using our website and making a purchase, you agree to our Terms &
 						Conditions. Please review them to understand your rights and obligations.
 					</p>
-				</div>
-				<div className="text-sm">
+				</article>
+				<article className="text-sm">
 					<h4 className="font-medium mb-4">RETURN & REFUND POLICY</h4>
 					<p>
 						We accept returns within 30 days of purchase for a full refund. Items must
@@ -76,8 +76,8 @@ export default async function SinglePage({
 						</Link>{' '}
 						for return instructions.
 					</p>
-				</div>
-				<div className="text-sm">
+				</article>
+				<article className="text-sm">
 					<h4 className="font-medium mb-4">SHIPPING INFO</h4>
 					<p>
 						We offer worldwide shipping with standard delivery times of 5-10 business
@@ -85,8 +85,8 @@ export default async function SinglePage({
 						calculated at checkout. Track your order via the link provided in your
 						confirmation email.
 					</p>
-				</div>
-			</div>
-		</div>
+				</article>
+			</section>
+		</section>
 	)
 }

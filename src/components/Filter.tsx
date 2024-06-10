@@ -1,10 +1,15 @@
 'use client'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useState } from 'react'
 
 export default function Filter(): JSX.Element {
 	const pathname = usePathname()
 	const searchParams = useSearchParams()
 	const router = useRouter()
+	const [typeValue, setTypeValue] = useState('Type')
+	const [minValue, setMinValue] = useState('')
+	const [maxValue, setMaxValue] = useState('')
+	const [sortValue, setSortValue] = useState('Sort By')
 
 	const handleFilterChange = (
 		e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>,
@@ -13,6 +18,10 @@ export default function Filter(): JSX.Element {
 		const params = new URLSearchParams(searchParams)
 		params.set(name, value)
 		router.replace(`${pathname}?${params.toString()}`)
+		if (name === 'type') setTypeValue(value)
+		if (name === 'min') setMinValue(value)
+		if (name === 'max') setMaxValue(value)
+		if (name === 'sort') setSortValue(value)
 	}
 
 	const handleResetFilters = (): void => {
@@ -22,16 +31,20 @@ export default function Filter(): JSX.Element {
 		params.delete('max')
 		params.delete('sort')
 		router.replace(`${pathname}?${params.toString()}`)
+		setTypeValue('Type')
+		setMinValue('')
+		setMaxValue('')
+		setSortValue('Sort By')
 	}
 
 	return (
-		<div className="mt-12 flex flex-wrap gap-8 justify-between">
+		<section className="mt-12 flex flex-wrap gap-8 justify-between">
 			<div className="flex gap-6 flex-wrap">
 				<select
 					name="type"
 					className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
 					onChange={handleFilterChange}
-					defaultValue={'Type'}
+					value={typeValue}
 				>
 					<option disabled>Type</option>
 					<option value="new">New</option>
@@ -43,6 +56,7 @@ export default function Filter(): JSX.Element {
 					placeholder="min price"
 					className="text-xs rounded-2xl pl-2 w-24 ring-1 ring-gray-400"
 					onChange={handleFilterChange}
+					value={minValue}
 				/>
 				<input
 					type="text"
@@ -50,11 +64,13 @@ export default function Filter(): JSX.Element {
 					placeholder="max price"
 					className="text-xs rounded-2xl pl-2 w-24 ring-1 ring-gray-400"
 					onChange={handleFilterChange}
+					value={maxValue}
 				/>
 				<select
 					name="sort"
 					className="py-2 px-4 rounded-2xl text-xs font-medium bg-white ring-1 ring-gray-400"
 					onChange={handleFilterChange}
+					value={sortValue}
 				>
 					<option disabled>Sort By</option>
 					<option value="ascPrice">Price (low to high)</option>
@@ -71,6 +87,6 @@ export default function Filter(): JSX.Element {
 					Reset Filters
 				</button>
 			</div>
-		</div>
+		</section>
 	)
 }

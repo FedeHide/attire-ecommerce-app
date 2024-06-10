@@ -19,13 +19,13 @@ export default function Slider(): JSX.Element {
 	}, [current])
 
 	return (
-		<div className="h-[calc(100vh-80px)] overflow-hidden">
+		<section className="h-[calc(100vh-80px)] overflow-hidden">
 			<div
 				className="w-max h-full flex transition-all ease-in-out duration-1000"
 				style={{ transform: `translateX(-${current * 100}vw)` }}
 			>
 				{slides.map((slide) => (
-					<div
+					<article
 						className={`${slide.bg} w-screen h-full flex flex-col gap-16 xl:flex-row`}
 						key={slide.id}
 					>
@@ -53,7 +53,7 @@ export default function Slider(): JSX.Element {
 								className="object-cover"
 							/>
 						</div>
-					</div>
+					</article>
 				))}
 			</div>
 			<div className="absolute m-auto left-1/2 bottom-8 flex gap-4">
@@ -71,6 +71,6 @@ export default function Slider(): JSX.Element {
 					</div>
 				))}
 			</div>
-		</div>
+		</section>
 	)
 }

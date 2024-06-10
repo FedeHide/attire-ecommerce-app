@@ -6,7 +6,7 @@ export default function ProductImages({ items }: { items: any }): JSX.Element {
 	const [index, setIndex] = useState(0)
 
 	return (
-		<div>
+		<section>
 			<div className="h-[500px] relative">
 				<Image
 					src={items[index].image?.url}
@@ -35,6 +35,6 @@ export default function ProductImages({ items }: { items: any }): JSX.Element {
 					</div>
 				))}
 			</div>
-		</div>
+		</section>
 	)
 }

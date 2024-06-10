@@ -61,11 +61,11 @@ export default function CustomizeProducts({
 	}
 
 	return (
-		<div className="flex flex-col gap-6">
+		<section className="flex flex-col gap-6">
 			{productOptions?.map((option) => {
 				if (option.name == null) return null
 				return (
-					<div key={option.name} className="flex flex-col gap-4">
+					<article key={option.name} className="flex flex-col gap-4">
 						<h4 className="font-bold">Choose a {option.name}</h4>
 						<ul className="flex items-center gap-3">
 							{option.choices?.map((choice) => {
@@ -126,7 +126,7 @@ export default function CustomizeProducts({
 								)
 							})}
 						</ul>
-					</div>
+					</article>
 				)
 			})}
 			<AddItem
@@ -134,6 +134,6 @@ export default function CustomizeProducts({
 				variantId={selectedVariant?._id ?? '00000000-0000-0000-0000-000000000000'}
 				stockNumber={selectedVariant?.stock?.quantity ?? 0}
 			/>
-		</div>
+		</section>
 	)
 }

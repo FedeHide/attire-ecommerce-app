@@ -6,11 +6,11 @@ import { footerLinks } from './footerLinks'
 
 export default function Footer(): JSX.Element {
 	return (
-		<div className="py-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 bg-gray-100 text-sm mt-24">
+		<section className="py-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 bg-gray-100 text-sm mt-24">
 			{/* TOP */}
-			<div className="flex flex-col md:flex-row justify-between gap-24">
+			<article className="flex flex-col md:flex-row justify-between gap-24">
 				{/* TOP-LEFT */}
-				<div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
+				<section className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
 					<Link href="/">
 						<div className="text-2xl tracking-wide">ATTIRE</div>
 					</Link>
@@ -30,9 +30,9 @@ export default function Footer(): JSX.Element {
 							</Link>
 						))}
 					</div>
-				</div>
+				</section>
 				{/* TOP-CENTER */}
-				<div className="hidden lg:flex justify-between w-1/2">
+				<section className="hidden lg:flex justify-between w-1/2">
 					{footerLinks.map((link) => (
 						<div key={link.id} className="flex flex-col justify-between">
 							<h1 className="font-medium text-lg">{link.title}</h1>
@@ -49,9 +49,9 @@ export default function Footer(): JSX.Element {
 							</div>
 						</div>
 					))}
-				</div>
+				</section>
 				{/* TOP-RIGHT */}
-				<div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
+				<section className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
 					<h1 className="font-medium text-lg">SUBSCRIBE</h1>
 					<p>
 						Be the first to know about the latest trends, exclusive promotions, and
@@ -76,10 +76,10 @@ export default function Footer(): JSX.Element {
 							/>
 						))}
 					</div>
-				</div>
-			</div>
+				</section>
+			</article>
 			{/* BOTTOM */}
-			<div className="flex flex-col md:flex-row items-center justify-between gap-8 mt-16">
+			<article className="flex flex-col md:flex-row items-center justify-between gap-8 mt-16">
 				<div>©️ 2024 ATTIRE Shop</div>
 				<div className="flex flex-col gap-8 md:flex-row">
 					<div>
@@ -91,7 +91,7 @@ export default function Footer(): JSX.Element {
 						<span className="font-medium">$ USD</span>
 					</div>
 				</div>
-			</div>
-		</div>
+			</article>
+		</section>
 	)
 }

@@ -3,16 +3,10 @@ import type { products } from '@wix/stores'
 import Image from 'next/image'
 import Link from 'next/link'
 import DOMPurify from 'isomorphic-dompurify'
+import Pagination from './Pagination'
+import type { productListSearchParams } from '@/interfaces/searchParamsInterface'
 
 const PRODUCT_PER_PAGE = 50
-
-interface searchParams {
-	name: string
-	type: string
-	min: number
-	max: number
-	sort: string
-}
 
 export default async function ProductList({
 	categoryId,
@@ -21,7 +15,7 @@ export default async function ProductList({
 }: {
 	categoryId: string | undefined | null | boolean
 	limit?: number
-	searchParams?: searchParams
+	searchParams?: productListSearchParams
 }): Promise<JSX.Element> {
 	const wixClient = await wixClientServer()
 
@@ -88,7 +82,7 @@ export default async function ProductList({
 	}
 
 	return (
-		<div className="flex gap-x-8 gap-y-16 justify-between flex-wrap mt-12">
+		<section className="flex gap-x-8 gap-y-16 flex-wrap mt-12">
 			{sortedAndTyped.map((product: products.Product) => (
 				<Link
 					key={product._id}
@@ -113,7 +107,7 @@ export default async function ProductList({
 							/>
 						)}
 					</div>
-					<div className="flex justify-between sm:gap-4">
+					<section className="flex justify-between sm:gap-4">
 						<span className="font-medium">{product.name}</span>
 						{product.price?.discountedPrice !== product.price?.price ? (
 							<div className="flex flex-row items-center gap-4 md:flex-row md:gap-4 lg:flex-col xl:flex-row ">
@@ -129,10 +123,10 @@ export default async function ProductList({
 								<span className="font-semibold">${product.price?.price}</span>
 							</div>
 						)}
-					</div>
+					</section>
 					{product.additionalInfoSections !== undefined &&
 						product.additionalInfoSections !== null && (
-							<div
+							<section
 								className="text-sm text-gray-500"
 								dangerouslySetInnerHTML={{
 									__html: DOMPurify.sanitize(
@@ -141,13 +135,14 @@ export default async function ProductList({
 										)?.description ?? 'No description available',
 									),
 								}}
-							></div>
+							></section>
 						)}
 					<button className="w-max rounded-2xl ring-1 ring-clrPrimary text-clrPrimary py-2 px-4 text-xs hover:bg-clrPrimary md:active:bg-clrPrimary hover:text-white md:active:text-white transition-colors ease-in duration-200">
 						Add to Cart
 					</button>
 				</Link>
 			))}
-		</div>
+			<Pagination /* currentPage={res.items} */ />
+		</section>
 	)
 }
