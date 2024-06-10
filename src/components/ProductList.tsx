@@ -4,7 +4,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import DOMPurify from 'isomorphic-dompurify'
 
-const PRODUCT_PER_PAGE = 40
+const PRODUCT_PER_PAGE = 50
+
+interface searchParams {
+	name: string
+	type: string
+	min: number
+	max: number
+	sort: string
+}
 
 export default async function ProductList({
 	categoryId,
@@ -13,18 +21,75 @@ export default async function ProductList({
 }: {
 	categoryId: string | undefined | null | boolean
 	limit?: number
-	searchParams?: any
+	searchParams?: searchParams
 }): Promise<JSX.Element> {
 	const wixClient = await wixClientServer()
-	const res = await wixClient.products
+
+	const productQuery = wixClient.products
 		.queryProducts()
+		.startsWith('name', searchParams?.name ?? '')
 		.eq('collectionIds', categoryId)
+		.gt('priceData.price', searchParams?.min ?? 0)
+		.lt('priceData.price', searchParams?.max ?? 999999)
 		.limit(limit ?? PRODUCT_PER_PAGE)
-		.find()
+
+	const res = await productQuery.find()
+	const sortedAndTyped = res.items.filter((product: products.Product) => {
+		if (searchParams?.type !== undefined && searchParams.type !== '') {
+			if (searchParams.type === 'new') {
+				if (product.ribbon === 'New') {
+					return product
+				}
+			}
+
+			if (searchParams.type === 'discount') {
+				if (product.discount?.type === 'PERCENT') {
+					return product
+				}
+			}
+		} else {
+			return product
+		}
+		return null
+	})
+
+	if (searchParams?.sort !== undefined && searchParams.sort !== '') {
+		if (searchParams.sort === 'ascPrice') {
+			sortedAndTyped.sort((a: products.Product, b: products.Product) => {
+				const priceA = a.price?.discountedPrice ?? 0
+				const priceB = b.price?.discountedPrice ?? 0
+				return priceA - priceB
+			})
+		}
+
+		if (searchParams.sort === 'descPrice') {
+			sortedAndTyped.sort((a: products.Product, b: products.Product) => {
+				const priceA = a.price?.discountedPrice ?? 0
+				const priceB = b.price?.discountedPrice ?? 0
+				return priceB - priceA
+			})
+		}
+
+		if (searchParams.sort === 'ascLastUpdated') {
+			sortedAndTyped.sort((a: products.Product, b: products.Product) => {
+				const dateA = new Date(a.lastUpdated ?? 0).getTime()
+				const dateB = new Date(b.lastUpdated ?? 0).getTime()
+				return dateB - dateA
+			})
+		}
+
+		if (searchParams.sort === 'descLastUpdated') {
+			sortedAndTyped.sort((a: products.Product, b: products.Product) => {
+				const dateA = new Date(a.lastUpdated ?? 0).getTime()
+				const dateB = new Date(b.lastUpdated ?? 0).getTime()
+				return dateA - dateB
+			})
+		}
+	}
 
 	return (
 		<div className="flex gap-x-8 gap-y-16 justify-between flex-wrap mt-12">
-			{res.items.map((product: products.Product) => (
+			{sortedAndTyped.map((product: products.Product) => (
 				<Link
 					key={product._id}
 					className="w-full flex flex-col gap-4 sm:w-[45%] lg:w-[22%]"

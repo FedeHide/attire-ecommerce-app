@@ -1,4 +1,4 @@
-import ProductList from '@/components/homepage/ProductList'
+import ProductList from '@/components/ProductList'
 import Slider from '@/components/heroSlider/Slider'
 import { Suspense } from 'react'
 import Skeleton from '@/components/Skeleton'
