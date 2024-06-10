@@ -1,11 +1,12 @@
 export interface listSearchParamsProps {
 	searchParams: {
-		cat: string | undefined | null
+		cat: string
 		name: string
 		type: string
 		min: number
 		max: number
 		sort: string
+		page: string
 	}
 }
 
@@ -15,4 +16,6 @@ export interface productListSearchParams {
 	min: number
 	max: number
 	sort: string
+	page: string
+	cat: string
 }
