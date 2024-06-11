@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import CartModal from './CartModal'
+// import { useWixClient } from '@/hooks/useWixClient'
 
 export default function NavIcons(): JSX.Element {
 	const [isProfileOpen, setIsProfileOpen] = useState(false)
@@ -20,11 +21,22 @@ export default function NavIcons(): JSX.Element {
 		setIsProfileOpen(!isProfileOpen)
 	}
 
+	// AUTH WITH WIX-MANAGED AUTH
+
+	// const wixClient = useWixClient()
+	// const login = async (): Promise<void> => {
+	// 	const loginRequestData = wixClient.auth.generateOAuthData('http://localhost:3000/')
+	// 	localStorage.setItem('oAuthRedirectData', JSON.stringify(loginRequestData))
+	// 	const { authUrl } = await wixClient.auth.getAuthUrl(loginRequestData)
+	// 	window.location.href = authUrl
+	// }
+
 	return (
 		<section className="flex items-center gap-4 xl:gap-6 relative">
 			{/* PROFILE */}
 			<Image
 				onClick={handleProfile}
+				// onClick={login}
 				className="cursor-pointer"
 				src="/assets/icons/profile-icon.png"
 				alt="profile icon"
