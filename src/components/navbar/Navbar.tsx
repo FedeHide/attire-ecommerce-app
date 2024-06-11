@@ -2,7 +2,16 @@ import Link from 'next/link'
 import Menu from './Menu'
 import Image from 'next/image'
 import SearchBar from './SearchBar'
-import NavIcons from './NavIcons'
+import dynamic from 'next/dynamic'
+
+// const NavIcons = dynamic(() => import('./NavIcons'), { ssr: false })
+const NavIcons = dynamic(
+	async () => {
+		const importedModule = await import('./NavIcons')
+		return importedModule
+	},
+	{ ssr: false },
+)
 
 export default function Navbar(): JSX.Element {
 	return (

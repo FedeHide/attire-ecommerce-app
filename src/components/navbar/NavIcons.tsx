@@ -5,20 +5,37 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import CartModal from './CartModal'
-// import { useWixClient } from '@/hooks/useWixClient'
+import { useWixClient } from '@/hooks/useWixClient'
+import type { AuthenticationStrategy } from '@wix/sdk'
+import Cookies from 'js-cookie'
+
+interface CustomAuth extends Omit<AuthenticationStrategy<undefined>, 'loggedIn'> {
+	auth: any
+}
 
 export default function NavIcons(): JSX.Element {
 	const [isProfileOpen, setIsProfileOpen] = useState(false)
 	const [isCartOpen, setIsCartOpen] = useState(false)
+	const [isLoading, setIsLoading] = useState(false)
 	const router = useRouter()
-
-	const isLoggedIn = false
+	const wixClient = useWixClient() as unknown as CustomAuth
+	const isLoggedIn = wixClient.auth.loggedIn()
 
 	const handleProfile = (): void => {
-		if (!isLoggedIn) {
+		if (isLoggedIn === false) {
 			router.push('/login')
+		} else {
+			setIsProfileOpen((prev) => !prev)
 		}
-		setIsProfileOpen(!isProfileOpen)
+	}
+
+	const handleLogout = async (): Promise<void> => {
+		setIsLoading(true)
+		Cookies.remove('refreshToken')
+		const { logoutUrl } = await wixClient.auth.logout(window.location.href)
+		setIsLoading(false)
+		setIsProfileOpen(false)
+		router.push(String(logoutUrl))
 	}
 
 	// AUTH WITH WIX-MANAGED AUTH
@@ -44,9 +61,16 @@ export default function NavIcons(): JSX.Element {
 				height={22}
 			/>
 			{isProfileOpen && (
-				<div className="absolute p-4 rounded-md top-12 left-0 text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20">
+				<div className="absolute p-4 rounded-md top-12 left-0 bg-white text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20">
 					<Link href="/">Profile</Link>
-					<div className="mt-2 cursor-pointer">Logout</div>
+					<div
+						className="mt-2 cursor-pointer"
+						onClick={() => {
+							void handleLogout()
+						}}
+					>
+						{isLoading ? 'Logging out...' : 'Logout'}
+					</div>
 				</div>
 			)}
 			{/* NOTIFICATION */}

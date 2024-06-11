@@ -1,9 +1,14 @@
 'use client'
 import { useWixClient } from '@/hooks/useWixClient'
+import type { AuthenticationStrategy } from '@wix/sdk'
 import { LoginState } from '@wix/sdk'
-import { usePathname, useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
+
+interface CustomAuth extends Omit<AuthenticationStrategy<undefined>, 'loggedIn'> {
+	auth: any
+}
 
 enum MODE {
 	LOGIN = 'LOGIN',
@@ -13,6 +18,9 @@ enum MODE {
 }
 
 export default function LoginPage(): JSX.Element {
+	const wixClient = useWixClient() as unknown as CustomAuth
+	const router = useRouter()
+
 	const [mode, setMode] = useState(MODE.LOGIN)
 	const [username, setUsername] = useState('')
 	const [email, setEmail] = useState('')
@@ -22,8 +30,12 @@ export default function LoginPage(): JSX.Element {
 	const [error, setError] = useState('')
 	const [message, setMessage] = useState('')
 
-	const pathname = usePathname()
-	const router = useRouter()
+	useEffect(() => {
+		const isLoggedIn = wixClient.auth.loggedIn()
+		if (isLoggedIn === true) {
+			router.push('/')
+		}
+	}, [wixClient, router])
 
 	const formTitle =
 		mode === MODE.LOGIN
@@ -42,8 +54,6 @@ export default function LoginPage(): JSX.Element {
 				: mode === MODE.RESET_PASSWORD
 					? 'Reset'
 					: 'Verify'
-
-	const wixClient = useWixClient()
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
 		e.preventDefault()
@@ -82,19 +92,35 @@ export default function LoginPage(): JSX.Element {
 				default:
 					break
 			}
-			console.log(response)
 
-			switch (response?.loginState) {
-				case LoginState.SUCCESS:
-					setMessage('Logged in successfully')
-					const tokens = await wixClient.auth.getMemberTokensForDirectLogin(
-						response.data.sessionToken!,
-					)
-					console.log(tokens)
+			if (response?.loginState === LoginState.SUCCESS) {
+				setMessage('Logged in successfully')
+				const sessionToken = response.data.sessionToken
+				if (sessionToken !== undefined && sessionToken !== null) {
+					const tokens = await wixClient.auth.getMemberTokensForDirectLogin(sessionToken)
 					Cookies.set('refreshToken', JSON.stringify(tokens.refreshToken), { expires: 2 })
 					wixClient.auth.setTokens(tokens)
 					router.push('/')
-					break
+				} else {
+					setError('Session token is missing')
+				}
+			} else if (response?.loginState === LoginState.FAILURE) {
+				if (
+					response.errorCode === 'invalidEmail' ||
+					response.errorCode === 'invalidPassword'
+				) {
+					setError('Invalid email or password')
+				} else if (response.errorCode === 'emailAlreadyExists') {
+					setError('Email already exists')
+				} else if (response.errorCode === 'resetPassword') {
+					setError('You need to reset your password')
+				} else {
+					setError('Something went wrong')
+				}
+			} else if (response?.loginState === LoginState.EMAIL_VERIFICATION_REQUIRED) {
+				setMode(MODE.EMAIL_VERIFICATION)
+			} else if (response?.loginState === LoginState.OWNER_APPROVAL_REQUIRED) {
+				setMessage('Your account is pending approval')
 			}
 		} catch (err) {
 			console.error(err)
@@ -185,7 +211,7 @@ export default function LoginPage(): JSX.Element {
 				>
 					{isLoading ? 'Loading...' : buttonTitle}
 				</button>
-				{error ?? <div className="text-red-600">{error}</div>}
+				{error !== '' && <div className="text-red-600">{error}</div>}
 				{mode === MODE.LOGIN && (
 					<div
 						className="text-sm underline cursor-pointer"

@@ -17,7 +17,6 @@ export default function Pagination({
 		params.set('page', pageNumber.toString())
 		router.replace(`${pathname}?${params.toString()}`)
 	}
-	console.log(currentPage, maxPages)
 
 	return (
 		<section className="mt-12 flex justify-between w-full">
