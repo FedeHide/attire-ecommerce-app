@@ -14,8 +14,21 @@ Practice Ecommerce Project: This repository serves as a sandbox for experimentin
 
 ------------
 
+
 [![attire-ecommerce-app-ss.webp](https://raw.githubusercontent.com/FedeHide/attire-ecommerce-app/main/public/assets/attire-ecommerce-app-ss.webp)](https://palindrome-checker-eight.vercel.app/)
 <!-- cambiar url -->
+
+## Features
+
+- Integration with Wix API as CMS, utilizing SDK, Stores, and eCom modules.
+
+- State management implemented with Zustand.
+
+- Cookie handling using js-cookie.
+
+- Form management using Next.js Server Actions.
+
+- Authentication in Next.js with Wix Headless.
 
 ## License
 
