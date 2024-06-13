@@ -1,4 +1,5 @@
 'use client'
+import { useWixClient } from '@/hooks/useWixClient'
 import { useEffect, useState } from 'react'
 
 export default function AddItem({
@@ -11,6 +12,7 @@ export default function AddItem({
 	stockNumber: number
 }): JSX.Element {
 	const [quantity, setQuantity] = useState(1)
+	const wixClient = useWixClient()
 
 	useEffect(() => {
 		setQuantity(1)
@@ -24,6 +26,24 @@ export default function AddItem({
 		if (type === 'i' && quantity < stockNumber) {
 			setQuantity((prev) => prev + 1)
 		}
+	}
+
+	const addItem = async (): Promise<void> => {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-expect-error
+		const response = await wixClient.currentCart.addToCurrentCart({
+			lineItems: [
+				{
+					catalogReference: {
+						appId: process.env.NEXT_PUBLIC_WIX_APP_ID ?? '',
+						catalogItemId: productId,
+						...(variantId !== '' && { options: { variantId } }),
+					},
+					quantity,
+				},
+			],
+		})
+		console.log(response)
 	}
 
 	return (
@@ -54,7 +74,12 @@ export default function AddItem({
 						Only <span className="text-orange-500">{stockNumber} items</span> left!
 					</div>
 				</div>
-				<button className="w-36 text-sm rounded-3xl ring-1 ring-clrPrimary text-clrPrimary py-2 px-4 hover:bg-clrPrimary md:active:bg-clrPrimary hover:text-white md:active:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:text-white disabled:ring-none">
+				<button
+					onClick={() => {
+						void addItem()
+					}}
+					className="w-36 text-sm rounded-3xl ring-1 ring-clrPrimary text-clrPrimary py-2 px-4 hover:bg-clrPrimary md:active:bg-clrPrimary hover:text-white md:active:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:text-white disabled:ring-none"
+				>
 					Add to Cart
 				</button>
 			</div>
