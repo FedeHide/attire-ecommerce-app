@@ -1,5 +1,5 @@
 'use client'
-import { useWixClient } from '@/hooks/useWixClient'
+import { useWixClient } from '@/context/wixContext'
 import type { AuthenticationStrategy } from '@wix/sdk'
 import { LoginState } from '@wix/sdk'
 import { useRouter } from 'next/navigation'

@@ -4,7 +4,6 @@ import Image from 'next/image'
 import SearchBar from './SearchBar'
 import dynamic from 'next/dynamic'
 
-// const NavIcons = dynamic(() => import('./NavIcons'), { ssr: false })
 const NavIcons = dynamic(
 	async () => {
 		const importedModule = await import('./NavIcons')

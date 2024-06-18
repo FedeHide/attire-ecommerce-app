@@ -1,5 +1,6 @@
 'use client'
-import { useWixClient } from '@/hooks/useWixClient'
+import { useCartStore } from '@/hooks/useCartStore'
+import { useWixClient } from '@/context/wixContext'
 import { useEffect, useState } from 'react'
 
 export default function AddItem({
@@ -13,6 +14,7 @@ export default function AddItem({
 }): JSX.Element {
 	const [quantity, setQuantity] = useState(1)
 	const wixClient = useWixClient()
+	const { addItem, isLoading } = useCartStore()
 
 	useEffect(() => {
 		setQuantity(1)
@@ -26,24 +28,6 @@ export default function AddItem({
 		if (type === 'i' && quantity < stockNumber) {
 			setQuantity((prev) => prev + 1)
 		}
-	}
-
-	const addItem = async (): Promise<void> => {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-expect-error
-		const response = await wixClient.currentCart.addToCurrentCart({
-			lineItems: [
-				{
-					catalogReference: {
-						appId: process.env.NEXT_PUBLIC_WIX_APP_ID ?? '',
-						catalogItemId: productId,
-						...(variantId !== '' && { options: { variantId } }),
-					},
-					quantity,
-				},
-			],
-		})
-		console.log(response)
 	}
 
 	return (
@@ -76,9 +60,12 @@ export default function AddItem({
 				</div>
 				<button
 					onClick={() => {
-						void addItem()
+						if (productId != null) {
+							addItem(wixClient, productId, variantId, quantity)
+						}
 					}}
-					className="w-36 text-sm rounded-3xl ring-1 ring-clrPrimary text-clrPrimary py-2 px-4 hover:bg-clrPrimary md:active:bg-clrPrimary hover:text-white md:active:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:text-white disabled:ring-none"
+					disabled={isLoading}
+					className="w-36 text-sm rounded-3xl ring-1 ring-clrPrimary text-clrPrimary py-2 px-4 hover:bg-clrPrimary md:active:bg-clrPrimary hover:text-white md:active:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:ring-0 disabled:text-white disabled:ring-none"
 				>
 					Add to Cart
 				</button>
