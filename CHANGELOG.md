@@ -4,21 +4,45 @@
 
 ### Features
 
+* **add:** cart state management with zustand ([92e66d9](https://github.com/FedeHide/attire-ecommerce-app/commit/92e66d98f2609eebedf0d31786196e69ed6b9c7c))
+
+* **add:** cart logic ([493d4af](https://github.com/FedeHide/attire-ecommerce-app/commit/493d4af631f9f7ca531060d8ee0141099ea3e065))
+
+* **add:** middleware to handle refresh token for cart interaction without login ([e8b6c60](https://github.com/FedeHide/attire-ecommerce-app/commit/e8b6c60c0f74d148c81c1f02080506390793ec06))
+
+* **add:** update loginPage, create logout logic and fix lint errors ([0eacd8d](https://github.com/FedeHide/attire-ecommerce-app/commit/0eacd8d819860efc4958612234499070299938f2))
+
+* **add:** login and registration logic ([d56f2a5](https://github.com/FedeHide/attire-ecommerce-app/commit/d56f2a507fcf6c4f49a4edc511a6dae884802caf))
+
+* **add:** pagination to product list ([bd5ed11](https://github.com/FedeHide/attire-ecommerce-app/commit/bd5ed11dd109ba2489972c55760a4ad40a5afcc7))
+
+* **add:** html semantic tags and params interface ([03dd57b](https://github.com/FedeHide/attire-ecommerce-app/commit/03dd57b7136c7b66f573347b49e686803a670b32))
+
+* **add:** filters logic to productList query ([ec598b8](https://github.com/FedeHide/attire-ecommerce-app/commit/ec598b82ab76e091faaefeb5019c9a0ae1f8ba78))
+
+* **add:** handle Add quantity button ([569acc4](https://github.com/FedeHide/attire-ecommerce-app/commit/569acc465021cf8e835f7c10addd47cb2d8feb05))
+
+* **add:** logic for handling product colors and sizes ([f448426](https://github.com/FedeHide/attire-ecommerce-app/commit/f448426e617ed9f3532f16a1bbb186d73fd06256))
+
+* **add:** single page product fetcher ([2f47894](https://github.com/FedeHide/attire-ecommerce-app/commit/2f478947e688eff079e71f36e410c9cab08ca8bd))
+
+* **add:** categories fetcher ([d0f32d0](https://github.com/FedeHide/attire-ecommerce-app/commit/d0f32d0355e732e81780f94eb47cb18ad6d1b352))
+
 * **add:** fetching categories from DB and add skeleton ([5eccf45](https://github.com/FedeHide/attire-ecommerce-app/commit/5eccf45104d9e6513778af6cc221008d89bf4bac))
 
-* **add:** add featured category ([0498151](https://github.com/FedeHide/attire-ecommerce-app/commit/0498151902ec5b1aac45956daa6de9f02e9a6ecc))
+* **add:** featured category ([0498151](https://github.com/FedeHide/attire-ecommerce-app/commit/0498151902ec5b1aac45956daa6de9f02e9a6ecc))
 
-* **add:** add wixClientServer ([8be3573](https://github.com/FedeHide/attire-ecommerce-app/commit/8be3573e3a3c67471be22893d180978157f52fea))
+* **add:** wixClientServer ([8be3573](https://github.com/FedeHide/attire-ecommerce-app/commit/8be3573e3a3c67471be22893d180978157f52fea))
 
-* **add:** add useWixContext hook ([ced321c](https://github.com/FedeHide/attire-ecommerce-app/commit/ced321c540968edaff49848861694fd0321e580c))
+* **add:** useWixContext hook ([ced321c](https://github.com/FedeHide/attire-ecommerce-app/commit/ced321c540968edaff49848861694fd0321e580c))
 
-* **add:** add context for wix cms provider ([57b3c8d](https://github.com/FedeHide/attire-ecommerce-app/commit/57b3c8dc833e037a5f90bc4eeaa6db483daeff72))
+* **add:** context for wix cms provider ([57b3c8d](https://github.com/FedeHide/attire-ecommerce-app/commit/57b3c8dc833e037a5f90bc4eeaa6db483daeff72))
 
 * **add:** products img assets ([147f575](https://github.com/FedeHide/attire-ecommerce-app/commit/147f57556dee581e036d8b06c6e89a3454291a4f))
 
 * **add:** categories stock images ([73cb219](https://github.com/FedeHide/attire-ecommerce-app/commit/73cb21906897d3f33f1975e96dad65118f22d14a))
 
-* **add:** adding buttons component on product single page ([9633c02](https://github.com/FedeHide/attire-ecommerce-app/commit/9633c028dfac9bf6873059547b8e5002e316b7d0))
+* **add:** buttons component on product single page ([9633c02](https://github.com/FedeHide/attire-ecommerce-app/commit/9633c028dfac9bf6873059547b8e5002e316b7d0))
 
 * **add:** product customization component ([a8c89a1](https://github.com/FedeHide/attire-ecommerce-app/commit/a8c89a16a5c5d813220e190786ae003817ad808e))
 
@@ -44,6 +68,12 @@
 
 ### Fix
 
+* **hotfix:** lint errors in CustomizeProducts component ([ef129e1](https://github.com/FedeHide/attire-ecommerce-app/commit/ef129e1e2995b5de24492db4bb9131be8ae16125))
+
+* **hotfix:** client / server component next/headers missing in categorySlider ([90fab85](https://github.com/FedeHide/attire-ecommerce-app/commit/90fab8534b3dd903c38342c37e5bf8bdc4903ce8))
+
+* **hotfix:** discounted price shows incorrectly ([d37689d](https://github.com/FedeHide/attire-ecommerce-app/commit/d37689d8a40b958651e98b64691b5f715f89263f))
+
 * **hotfix:** categories slider X translate and add mixins for hover/touch ([7916c6a](https://github.com/FedeHide/attire-ecommerce-app/commit/7916c6acd1427fbaeba637dd7e37942534c85926))
 
 * **hotfix:** peer devDependencies errors and linting errors ([56785db](https://github.com/FedeHide/attire-ecommerce-app/commit/56785db1e3474379b8435eb6270f4565e9fbccc0))
@@ -57,6 +87,10 @@
 * **style:** cart modal ([6d09ecd](https://github.com/FedeHide/attire-ecommerce-app/commit/6d09ecd9e95f2e7cb70a3a5069d83bcda802907b))
 
 ### Other Changes
+
+* **chores:** modify slug page paragraphs ([88d93e4](https://github.com/FedeHide/attire-ecommerce-app/commit/88d93e4ddfd7d36c1ee3f8edb7b0834115296a09))
+
+* **chores:** change folder structure ([21a65a1](https://github.com/FedeHide/attire-ecommerce-app/commit/21a65a1f3c913bb828f456d6aa2a5924785bf72f))
 
 * **refactor:** separate code ([eb48090](https://github.com/FedeHide/attire-ecommerce-app/commit/eb480907d59c708645b63333f538d171d631f9a2))
 
