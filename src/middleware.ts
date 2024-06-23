@@ -1,19 +1,19 @@
-import { createClient, OAuthStrategy } from '@wix/sdk'
-import type { NextRequest } from 'next/server'
+import { OAuthStrategy, createClient } from '@wix/sdk'
 import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
 export const middleware = async (request: NextRequest): Promise<NextResponse> => {
 	const cookies = request.cookies
 	const res = NextResponse.next()
 
-	if (cookies.get('RefreshToken') !== undefined) {
+	if (cookies.get('refreshToken') !== null) {
 		return res
 	}
+
 	const wixClient = createClient({
-		auth: OAuthStrategy({
-			clientId: process.env.NEXT_PUBLIC_WIX_CLIENT_ID ?? '',
-		}),
+		auth: OAuthStrategy({ clientId: process.env.NEXT_PUBLIC_WIX_CLIENT_ID ?? '' }),
 	})
+
 	const tokens = await wixClient.auth.generateVisitorTokens()
 	res.cookies.set('refreshToken', JSON.stringify(tokens.refreshToken), {
 		maxAge: 60 * 60 * 24 * 30,
