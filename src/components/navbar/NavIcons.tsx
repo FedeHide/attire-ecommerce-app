@@ -19,7 +19,7 @@ export default function NavIcons(): JSX.Element {
 	const { counter, getCart } = useCartStore()
 
 	useEffect(() => {
-		getCart(wixClient)
+		void getCart(wixClient)
 	}, [wixClient, getCart])
 
 	const handleProfile = (): void => {

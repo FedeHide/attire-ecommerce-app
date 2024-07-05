@@ -5,16 +5,21 @@ import { useCartStore } from '@/hooks/useCartStore'
 import { media as wixMedia } from '@wix/sdk'
 import { useWixClient } from '@/context/wixContext'
 import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function CartModal(): JSX.Element {
 	const wixClient = useWixClient()
 	const { cart, getCart, isLoading, removeItem } = useCartStore()
+	const isLoggedIn = wixClient.auth.loggedIn()
+	const router = useRouter()
 
 	useEffect(() => {
 		void getCart(wixClient)
 	}, [wixClient, getCart])
 
-	console.log(cart)
+	const handleCheckout = (): void => {
+		router.push('/checkout')
+	}
 
 	return (
 		<section className="w-max absolute p-4 rounded-md shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-white top-12 right-0 flex flex-col gap-6 z-20">
@@ -99,6 +104,7 @@ export default function CartModal(): JSX.Element {
 							<button
 								className="rounded-md py-3 px-4 bg-black text-white disabled:cursor-not-allowed disabled:opacity-75"
 								disabled={isLoading}
+								onClick={handleCheckout}
 							>
 								Checkout
 							</button>

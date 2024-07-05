@@ -242,7 +242,7 @@ export default function LoginPage(): JSX.Element {
 						Go back to login
 					</div>
 				)}
-				{message ?? <div className="text-green-600 text-sm">{message}</div>}
+				{message !== '' && <div className="text-green-600 text-sm">{message}</div>}
 			</form>
 		</section>
 	)
