@@ -15,7 +15,7 @@ export default function CheckoutPage(): JSX.Element {
 		getCart()
 	}, [getCart])
 
-	const updateShippingCost = (cost: string) => {
+	const updateShippingCost = (cost: string): void => {
 		setShippingCost(cost)
 	}
 
@@ -58,9 +58,7 @@ export default function CheckoutPage(): JSX.Element {
 			<div className="h-[2px] w-full bg-gray-200 my-4"></div>
 			<section className="flex gap-16">
 				<article className="w-1/2">
-					<div className="flex justify-between">
-						<CheckoutForm updateShippingCost={updateShippingCost} />
-					</div>
+					<CheckoutForm updateShippingCost={updateShippingCost} />
 				</article>
 				<article className="flex flex-col gap-3 w-1/2">
 					<div className="flex flex-col items-center gap-4 bg-gray-100 p-4 rounded-lg">
