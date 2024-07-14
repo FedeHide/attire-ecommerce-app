@@ -1,5 +1,8 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useWixClient } from '@/context/wixContext'
+import { useCartStore } from '@/hooks/useCartStore'
 
 const countries = [
 	'United States',
@@ -22,6 +25,9 @@ interface CheckoutFormProps {
 }
 
 export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps): JSX.Element {
+	const wixClient = useWixClient()
+	const { cart, getCart, removeItem } = useCartStore()
+
 	const [dataName, setDataName] = useState('')
 	const [dataEmail, setDataEmail] = useState('')
 	const [dataAddress, setDataAddress] = useState('')
@@ -29,19 +35,38 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 	const [dataShipping, setDataShipping] = useState('')
 	const [dataShippingCost, setDataShippingCost] = useState('')
 
-	const [shippingSelected, setShippingSelected] = useState('free')
+	const [shippingSelected, setShippingSelected] = useState('Free Shipping')
 	const [selectedCountry, setSelectedCountry] = useState('')
 	const [isPlaceOrder, setIsPlaceOrder] = useState(false)
+	const [isSubmitting, setIsSubmitting] = useState(false)
+	const [dots, setDots] = useState('')
+	const router = useRouter()
+
+	useEffect(() => {
+		void getCart(wixClient)
+	}, [wixClient, getCart])
+
+	useEffect(() => {
+		let interval: NodeJS.Timeout
+		if (isSubmitting) {
+			interval = setInterval(() => {
+				setDots((prevDots) => (prevDots.length < 3 ? prevDots + '.' : ''))
+			}, 500)
+		}
+		return () => {
+			clearInterval(interval)
+		}
+	}, [isSubmitting])
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
 		event.preventDefault()
 
 		let shippingCost = ''
-		if (shippingSelected === 'free') {
+		if (shippingSelected === 'Free Shipping') {
 			shippingCost = 'Free'
-		} else if (shippingSelected === 'standard') {
+		} else if (shippingSelected === 'Standard Shipping') {
 			shippingCost = '$10'
-		} else if (shippingSelected === 'express') {
+		} else if (shippingSelected === 'Express Shipping') {
 			shippingCost = '$25'
 		}
 
@@ -58,7 +83,6 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 			shippingCost,
 		}
 
-		console.log('Form Data:', formData)
 		setDataName(formData.firstName + ' ' + formData.lastName)
 		setDataEmail(formData.email)
 		setDataAddress(
@@ -77,12 +101,32 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 	const handleShippingChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
 		setShippingSelected(event.target.value)
 		updateShippingCost(
-			event.target.value === 'free'
+			event.target.value === 'Free Shipping'
 				? '--'
-				: event.target.value === 'standard'
+				: event.target.value === 'Standard Shipping'
 					? '$10'
 					: '$25',
 		)
+	}
+	console.log(cart)
+
+	const handlePlaceOrder = async (): Promise<void> => {
+		setIsSubmitting(true)
+		await new Promise((resolve) => setTimeout(resolve, 2000))
+
+		if (cart.lineItems && cart.lineItems.length > 0) {
+			await Promise.all(
+				cart.lineItems.map((item) => {
+					if (item._id != null) {
+						console.log(`item: ${item._id} removed`)
+						return removeItem(wixClient, item._id)
+					}
+					return Promise.resolve()
+				}),
+			)
+		}
+
+		router.push('/success')
 	}
 
 	return (
@@ -181,17 +225,17 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 					<section className="flex flex-col gap-4">
 						<div
 							className={`flex justify-between gap-2 ring-2 ring-gray-300 rounded-md p-2 ${
-								shippingSelected === 'free' ? 'bg-blue-50' : 'bg-white'
+								shippingSelected === 'Free Shipping' ? 'bg-blue-50' : 'bg-white'
 							}`}
 						>
 							<label htmlFor="free" className="flex flex-1 gap-2 cursor-pointer">
 								<div className="flex gap-2 flex-1">
 									<input
-										value="free"
+										value="Free Shipping"
 										id="free"
 										type="radio"
 										name="shipping"
-										checked={shippingSelected === 'free'}
+										checked={shippingSelected === 'Free Shipping'}
 										onChange={handleShippingChange}
 									/>
 									<span>Free Shipping</span>
@@ -202,17 +246,17 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 						</div>
 						<div
 							className={`flex justify-between gap-2 ring-2 ring-gray-300 rounded-md p-2 ${
-								shippingSelected === 'standard' ? 'bg-blue-50' : 'bg-white'
+								shippingSelected === 'Standard Shipping' ? 'bg-blue-50' : 'bg-white'
 							}`}
 						>
 							<label htmlFor="standard" className="flex flex-1 gap-2 cursor-pointer">
 								<div className="flex gap-2 flex-1">
 									<input
-										value="standard"
+										value="Standard Shipping"
 										id="standard"
 										type="radio"
 										name="shipping"
-										checked={shippingSelected === 'standard'}
+										checked={shippingSelected === 'Standard Shipping'}
 										onChange={handleShippingChange}
 									/>
 									<span>Standard Shipping</span>
@@ -223,17 +267,17 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 						</div>
 						<div
 							className={`flex justify-between gap-2 ring-2 ring-gray-300 rounded-md p-2 ${
-								shippingSelected === 'express' ? 'bg-blue-50' : 'bg-white'
+								shippingSelected === 'Express Shipping' ? 'bg-blue-50' : 'bg-white'
 							}`}
 						>
 							<label htmlFor="express" className="flex flex-1 gap-2 cursor-pointer">
 								<div className="flex gap-2 flex-1">
 									<input
-										value="express"
+										value="Express Shipping"
 										id="express"
 										type="radio"
 										name="shipping"
-										checked={shippingSelected === 'express'}
+										checked={shippingSelected === 'Express Shipping'}
 										onChange={handleShippingChange}
 									/>
 									<span>Express Shipping</span>
@@ -251,7 +295,6 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 					</button>
 				</form>
 			) : (
-				// <section className="flex flex-col gap-6">
 				<section className="flex flex-col gap-6 justify-between w-full">
 					<div className="flex justify-between">
 						<h2 className="text-xl font-bold">Delivery details</h2>
@@ -271,10 +314,29 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 						<p className="text-slate-500">{dataPhone}</p>
 					</div>
 					<div className="h-[2px] w-full bg-gray-200"></div>
-					<h2 className="text-xl font-bold">Delivery details</h2>
+					<h2 className="text-xl font-bold">Delivery method</h2>
 					<div className="flex justify-between">
 						<p className="text-slate-500">{dataShipping}</p>
 						<p className="text-slate-500">{dataShippingCost}</p>
+					</div>
+					<div className="h-[2px] w-full bg-gray-200"></div>
+					<div className="flex flex-col gap-6">
+						<h2 className="text-xl font-bold">Review & place order</h2>
+						<p>
+							Review the order details above, and place your order when you&apos;re
+							ready
+						</p>
+						<button
+							className={`w-full h-10 text-white p-2 rounded-sm ${
+								isSubmitting
+									? 'bg-gray-500 cursor-not-allowed'
+									: 'bg-black hover:bg-slate-700'
+							}`}
+							onClick={handlePlaceOrder}
+							disabled={isSubmitting}
+						>
+							{isSubmitting ? `${dots}` : 'Place Order'}
+						</button>
 					</div>
 				</section>
 			)}
