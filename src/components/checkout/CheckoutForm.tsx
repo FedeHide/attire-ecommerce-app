@@ -26,7 +26,7 @@ interface CheckoutFormProps {
 
 export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps): JSX.Element {
 	const wixClient = useWixClient()
-	const { cart, getCart, removeItem } = useCartStore()
+	const { getCart, deleteCart } = useCartStore()
 
 	const [dataName, setDataName] = useState('')
 	const [dataEmail, setDataEmail] = useState('')
@@ -84,11 +84,11 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 		}
 
 		setDataName(formData.firstName + ' ' + formData.lastName)
-		setDataEmail(formData.email)
+		setDataEmail(formData.email as string)
 		setDataAddress(
 			`${formData.address}, ${formData.city}, ${formData.country}, ${formData.postalCode}`,
 		)
-		setDataPhone(formData.phone)
+		setDataPhone(formData.phone as string)
 		setDataShipping(formData.shippingMethod)
 		setDataShippingCost(formData.shippingCost)
 		setIsPlaceOrder(true)
@@ -108,25 +108,16 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 					: '$25',
 		)
 	}
-	console.log(cart)
 
 	const handlePlaceOrder = async (): Promise<void> => {
 		setIsSubmitting(true)
-		await new Promise((resolve) => setTimeout(resolve, 2000))
-
-		if (cart.lineItems && cart.lineItems.length > 0) {
-			await Promise.all(
-				cart.lineItems.map((item) => {
-					if (item._id != null) {
-						console.log(`item: ${item._id} removed`)
-						return removeItem(wixClient, item._id)
-					}
-					return Promise.resolve()
-				}),
-			)
+		try {
+			void deleteCart(wixClient)
+			router.push('/success')
+		} catch (error) {
+			console.error(error)
 		}
-
-		router.push('/success')
+		setIsSubmitting(false)
 	}
 
 	return (
@@ -332,7 +323,7 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 									? 'bg-gray-500 cursor-not-allowed'
 									: 'bg-black hover:bg-slate-700'
 							}`}
-							onClick={handlePlaceOrder}
+							onClick={() => handlePlaceOrder}
 							disabled={isSubmitting}
 						>
 							{isSubmitting ? `${dots}` : 'Place Order'}

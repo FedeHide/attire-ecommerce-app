@@ -5,15 +5,17 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { LockIcon } from '../../../public/assets/icons/LockIcon'
 import CheckoutForm from '@/components/checkout/CheckoutForm'
+import { useWixClient } from '@/context/wixContext'
 
 export default function CheckoutPage(): JSX.Element {
 	const { cart, getCart } = useCartStore()
 	const [shippingCost, setShippingCost] = useState('--')
 	const [total, setTotal] = useState(0)
+	const wixClient = useWixClient()
 
 	useEffect(() => {
-		getCart()
-	}, [getCart])
+		void getCart(wixClient)
+	}, [wixClient, getCart])
 
 	const updateShippingCost = (cost: string): void => {
 		setShippingCost(cost)
@@ -21,8 +23,8 @@ export default function CheckoutPage(): JSX.Element {
 
 	useEffect(() => {
 		// Calcular total basado en cart.subtotal?.amount y shippingCost
-		const calculateTotal = () => {
-			const subtotal = parseFloat(cart.subtotal?.amount) || 0
+		const calculateTotal = (): number => {
+			const subtotal = parseFloat(cart.subtotal?.amount ?? '0')
 			const formattedShippingCost = formatShippingCost(shippingCost)
 			return subtotal + formattedShippingCost
 		}
@@ -36,10 +38,10 @@ export default function CheckoutPage(): JSX.Element {
 		return shippingCost === '--' ? 0 : parseFloat(shippingCost.replace('$', ''))
 	}
 
-	const getImageUrl = (wixImageUrl: string) => {
+	const getImageUrl = (wixImageUrl: string): string => {
 		const imageMatch = wixImageUrl.match(/wix:image:\/\/v1\/([^/]+)/)
-		const imageId = imageMatch ? imageMatch[1] : null
-		return imageId
+		const imageId = imageMatch != null ? imageMatch[1] : null
+		return imageId != null
 			? `https://static.wixstatic.com/media/${imageId}/v1/fit/w_1000,h_1498,q_90/file.webp`
 			: ''
 	}
@@ -74,7 +76,7 @@ export default function CheckoutPage(): JSX.Element {
 								<div>
 									<Image
 										className="rounded-sm"
-										src={getImageUrl(item.image)}
+										src={getImageUrl(item.image ?? '')}
 										alt="Product Image"
 										width={50}
 										height={50}

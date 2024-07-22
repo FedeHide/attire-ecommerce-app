@@ -10,7 +10,6 @@ import { useRouter } from 'next/navigation'
 export default function CartModal(): JSX.Element {
 	const wixClient = useWixClient()
 	const { cart, getCart, isLoading, removeItem } = useCartStore()
-	const isLoggedIn = wixClient.auth.loggedIn()
 	const router = useRouter()
 
 	useEffect(() => {

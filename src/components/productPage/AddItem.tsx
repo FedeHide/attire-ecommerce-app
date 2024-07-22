@@ -2,7 +2,7 @@
 import { useCartStore } from '@/hooks/useCartStore'
 import { useWixClient } from '@/context/wixContext'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 export default function AddItem({
 	productId,
@@ -18,13 +18,14 @@ export default function AddItem({
 	const { addItem, isLoading } = useCartStore()
 	const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null)
 	const router = useRouter()
+	const pathname = usePathname()
 
 	useEffect(() => {
-		const checkLoginStatus = async () => {
-			const loggedIn = await wixClient.auth.loggedIn()
+		const checkLoginStatus = async (): Promise<void> => {
+			const loggedIn = wixClient.auth.loggedIn()
 			setIsLoggedIn(loggedIn)
 		}
-		checkLoginStatus()
+		void checkLoginStatus()
 	}, [wixClient])
 
 	useEffect(() => {
@@ -73,7 +74,9 @@ export default function AddItem({
 					onClick={() => {
 						if (isLoggedIn === true) {
 							if (productId != null) {
-								addItem(wixClient, productId, variantId, quantity)
+								void addItem(wixClient, productId, variantId, quantity)
+								router.replace(pathname)
+								setQuantity(1)
 							}
 						} else {
 							router.push('/login')
