@@ -4,6 +4,18 @@
 
 ### Features
 
+* **chores:** finish success page and lint([8b93902](https://github.com/FedeHide/attire-ecommerce-app/commit/8b9390282bc38df9abd1b145918daf4bd5fab725))
+
+* **chores:** add success page([b7d1a97](https://github.com/FedeHide/attire-ecommerce-app/commit/b7d1a97d1e5ec21c87793e4fe61f8eac616eeba6))
+
+* **chores:** update checkout page and form PART 2([7a83bc5](https://github.com/FedeHide/attire-ecommerce-app/commit/7a83bc511f229d4ce9d0112cb8bc77fec07e7c9d))
+
+* **chores:** update checkout page and form ([7dc6470](https://github.com/FedeHide/attire-ecommerce-app/commit/7dc6470aac11a56664ce88a75569ef1b4e4e676b))
+
+* **chores:** update checkout page, right side ([6863d2b](https://github.com/FedeHide/attire-ecommerce-app/commit/6863d2b24799e7f9ff089f7f1b2ee6eca69207e5))
+
+* **chores:** building a checkout page ([5f0b84a](https://github.com/FedeHide/attire-ecommerce-app/commit/5f0b84ae30080f1e7e179b50b23daf05d5e42ae5))
+
 * **add:** cart state management with zustand ([92e66d9](https://github.com/FedeHide/attire-ecommerce-app/commit/92e66d98f2609eebedf0d31786196e69ed6b9c7c))
 
 * **add:** cart logic ([493d4af](https://github.com/FedeHide/attire-ecommerce-app/commit/493d4af631f9f7ca531060d8ee0141099ea3e065))
@@ -67,6 +79,12 @@
 * **add:** navbar ([06654c0](https://github.com/FedeHide/attire-ecommerce-app/commit/06654c033af1bd81cba5e01047787dd3bd631637))
 
 ### Fix
+
+* **hotfix:** hidden "deals" category ([c310be0](https://github.com/FedeHide/attire-ecommerce-app/commit/c310be03296b74df11d04e16f8c846661b774196))
+
+* **hotfix:** some links redirection ([5bd0c38](https://github.com/FedeHide/attire-ecommerce-app/commit/5bd0c38ead00917a74e38df9161cf3ddd0407d61))
+
+* **hotfix:** visitor token reset over refresh ([a2bdda7](https://github.com/FedeHide/attire-ecommerce-app/commit/a2bdda7d503ad0e9e0df5f249d6047a0b6794c1d))
 
 * **hotfix:** lint errors in CustomizeProducts component ([ef129e1](https://github.com/FedeHide/attire-ecommerce-app/commit/ef129e1e2995b5de24492db4bb9131be8ae16125))
 
