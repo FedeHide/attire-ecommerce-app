@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { productListSearchFilter } from './searchBarFilter'
 
 export default function SearchBar(): JSX.Element {
 	const router = useRouter()
@@ -11,8 +12,25 @@ export default function SearchBar(): JSX.Element {
 		const name = formData.get('name') as string
 
 		if (name !== '') {
-			router.push(`/list?name=${name}`)
+			const cleanedName = name.replace(/[^a-zA-Z\s]/g, '').toLowerCase()
+			const searchTerm = cleanedName.split(' ')
+			const key = findKeyFromKeywords(searchTerm)
+
+			if (key != null) {
+				router.push(key)
+			} else {
+				console.log('No se encontraron coincidencias para la búsqueda.')
+			}
 		}
+	}
+
+	const findKeyFromKeywords = (keywords: string[]): string | null => {
+		for (const [key, keywordArray] of Object.entries(productListSearchFilter)) {
+			if (keywords.some((keyword) => keywordArray.includes(keyword))) {
+				return key
+			}
+		}
+		return null
 	}
 
 	return (

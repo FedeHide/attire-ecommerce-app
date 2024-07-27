@@ -17,7 +17,7 @@ export const categories = [
 		id: 3,
 		name: 'Accessories',
 		src: 'https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-		src2: '/assets/categories/categories-accesories.webp',
+		src2: '/assets/categories/categories-accessories.webp',
 		link: '/list?cat=test',
 	},
 	{
