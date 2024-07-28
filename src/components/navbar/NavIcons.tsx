@@ -33,7 +33,7 @@ export default function NavIcons(): JSX.Element {
 	const handleLogout = async (): Promise<void> => {
 		setIsLoading(true)
 		Cookies.remove('refreshToken')
-		const { logoutUrl } = await wixClient.auth.logout(window.location.href)
+		const { logoutUrl } = await wixClient.auth.logout('http://localhost:3000/')
 		setIsLoading(false)
 		setIsProfileOpen(false)
 		router.push(String(logoutUrl))
@@ -54,7 +54,6 @@ export default function NavIcons(): JSX.Element {
 			{/* PROFILE */}
 			<Image
 				onClick={handleProfile}
-				// onClick={login}
 				className="cursor-pointer"
 				src="/assets/icons/profile-icon.png"
 				alt="profile icon"

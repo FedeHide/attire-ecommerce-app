@@ -34,8 +34,8 @@ export default function Navbar(): JSX.Element {
 						<Link href="/">Home</Link>
 						<Link href="/list?cat=all-products">Shop</Link>
 						<Link href="/list?cat=deals">Deals</Link>
-						<Link href="/">About</Link>
-						<Link href="/">Contact</Link>
+						<Link href="/about">About</Link>
+						<Link href="/contact">Contact</Link>
 					</div>
 				</div>
 				{/* SEARCHBAR & NAVICONS */}
