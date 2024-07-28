@@ -127,6 +127,7 @@ export default function LoginPage(): JSX.Element {
 			setError('Something went wrong')
 		} finally {
 			setIsLoading(false)
+			router.refresh()
 		}
 	}
 
