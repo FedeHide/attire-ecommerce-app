@@ -4,7 +4,7 @@ export const slides = [
 		title: 'Summer Sale Collections',
 		description: 'Sale! Up to 50% off!',
 		img: '/assets/slider/slider-01.webp',
-		url: '/',
+		url: '/list?cat=deals',
 		bg: 'bg-gradient-to-r from-yellow-50 to-pink-50',
 	},
 	{
@@ -12,7 +12,7 @@ export const slides = [
 		title: 'Winter Sale Collections',
 		description: 'Sale! Up to 50% off!',
 		img: '/assets/slider/slider-02.webp',
-		url: '/',
+		url: '/list?cat=deals',
 		bg: 'bg-gradient-to-r from-pink-50 to-blue-50',
 	},
 	{
@@ -20,7 +20,7 @@ export const slides = [
 		title: 'Spring Sale Collections',
 		description: 'Sale! Up to 50% off!',
 		img: '/assets/slider/slider-03.webp',
-		url: '/',
+		url: '/list?cat=deals',
 		bg: 'bg-gradient-to-r from-blue-50 to-yellow-50',
 	},
 ]

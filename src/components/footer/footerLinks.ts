@@ -5,23 +5,23 @@ export const footerLinks = [
 		links: [
 			{
 				title: 'About Us',
-				href: '',
+				href: '/about',
 			},
 			{
 				title: 'Careers',
-				href: '',
+				href: '/careers',
 			},
 			{
 				title: 'Affiliates',
-				href: '',
+				href: '/affiliates',
 			},
 			{
 				title: 'Terms & Conditions',
-				href: '',
+				href: '/terms',
 			},
 			{
 				title: 'Contact Us',
-				href: '',
+				href: '/contact',
 			},
 		],
 	},
@@ -31,23 +31,23 @@ export const footerLinks = [
 		links: [
 			{
 				title: 'New Arrivals',
-				href: '',
+				href: '/list?cat=new',
 			},
 			{
 				title: 'Accessories',
-				href: '',
+				href: '/list?cat=accessories',
 			},
 			{
-				title: 'Men',
-				href: '',
+				title: 'Deals',
+				href: '/list?cat=deals',
 			},
 			{
-				title: 'Women',
-				href: '',
+				title: 'Home',
+				href: '/list?cat=home',
 			},
 			{
 				title: 'All Products',
-				href: '',
+				href: '/list?cat=all-products',
 			},
 		],
 	},
@@ -57,23 +57,23 @@ export const footerLinks = [
 		links: [
 			{
 				title: 'Customer Service',
-				href: '',
+				href: '/customer',
 			},
 			{
 				title: 'My Account',
-				href: '',
+				href: '/profile',
 			},
 			{
 				title: 'Find a Store',
-				href: '',
+				href: '/findstores',
 			},
 			{
 				title: 'Legal & Privacy',
-				href: '',
+				href: '/legal',
 			},
 			{
-				title: 'Gift Cards',
-				href: '',
+				title: 'FAQ',
+				href: 'faq',
 			},
 		],
 	},

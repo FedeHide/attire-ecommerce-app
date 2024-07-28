@@ -1,13 +1,16 @@
 'use client'
 
+import { useWixClient } from '@/context/wixContext'
 import { useCartStore } from '@/hooks/useCartStore'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
 export default function Menu(): JSX.Element {
+	const wixClient = useWixClient()
 	const [open, setOpen] = useState(false)
 	const { counter } = useCartStore()
+	const isLoggedIn = wixClient.auth.loggedIn()
 
 	return (
 		<section>
@@ -26,10 +29,14 @@ export default function Menu(): JSX.Element {
 					<Link href="/">Home</Link>
 					<Link href="/list?cat=all-products">Shop</Link>
 					<Link href="/list?cat=deals">Deals</Link>
-					<Link href="/">About</Link>
-					<Link href="/">Contact</Link>
-					<Link href="/">Logout</Link>
-					<Link href="/">Cart ({counter})</Link>
+					<Link href="/about">About</Link>
+					<Link href="/contact">Contact</Link>
+					{isLoggedIn ? (
+						<Link href="/profile">Profile</Link>
+					) : (
+						<Link href="/login">Login</Link>
+					)}
+					<Link href="/cart">Cart ({counter})</Link>
 				</div>
 			)}
 		</section>

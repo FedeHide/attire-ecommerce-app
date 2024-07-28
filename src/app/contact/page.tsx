@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Confetti from 'react-confetti'
@@ -76,9 +77,13 @@ export default function Contact(): JSX.Element {
 					</p>
 					<p className="text-gray-700 mb-4">
 						Or email us at:{' '}
-						<a href="mailto:info@ATTIRE.com" className="text-blue-500 underline">
+						<Link
+							href="mailto:info@ATTIRE.com"
+							target="_blank"
+							className="text-blue-500 underline"
+						>
 							info@ATTIRE.com
-						</a>
+						</Link>
 					</p>
 					<form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-4">
 						<label className="text-sm text-gray-700">Name</label>

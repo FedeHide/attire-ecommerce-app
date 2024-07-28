@@ -6,6 +6,7 @@ import { media as wixMedia } from '@wix/sdk'
 import { useWixClient } from '@/context/wixContext'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 export default function CartModal(): JSX.Element {
 	const wixClient = useWixClient()
@@ -97,9 +98,11 @@ export default function CartModal(): JSX.Element {
 							Shipping and taxes calculated at checkout.
 						</p>
 						<div className="flex justify-between text-sm">
-							<button className="rounded-md py-3 px-4 ring-1 ring-gray-300">
-								View Cart
-							</button>
+							<Link href="/cart">
+								<button className="rounded-md py-3 px-4 ring-1 ring-gray-300">
+									View Cart
+								</button>
+							</Link>
 							<button
 								className="rounded-md py-3 px-4 bg-black text-white disabled:cursor-not-allowed disabled:opacity-75"
 								disabled={isLoading}

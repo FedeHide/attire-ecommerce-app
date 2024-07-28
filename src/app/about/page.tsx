@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function About(): JSX.Element {
 	return (
@@ -26,9 +27,13 @@ export default function About(): JSX.Element {
 				<p className="mt-4 text-gray-700">
 					Visit us at our store located at 1234 Maple Street, Oakwood Center, Pineville,
 					TX 75001, United States. You can also reach us at{' '}
-					<a href="mailto:info@ATTIRE.com" className="text-blue-500 underline">
+					<Link
+						href="mailto:info@ATTIRE.com"
+						target="_blank"
+						className="text-blue-500 underline"
+					>
 						info@ATTIRE.com
-					</a>
+					</Link>
 					. We look forward to helping you find your next favorite outfit!
 				</p>
 			</article>

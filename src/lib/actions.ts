@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 'use server'
 
 import { wixClientServer } from './wixClientServer'
@@ -17,7 +18,7 @@ export const updateUser = async (formData: FormData): Promise<void> => {
 			contact: {
 				firstName: firstName || undefined,
 				lastName: lastName || undefined,
-				phones: [phone] || undefined,
+				phones: [phone],
 			},
 			loginEmail: email || undefined,
 			profile: { nickname: username || undefined },
