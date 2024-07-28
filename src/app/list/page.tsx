@@ -4,6 +4,7 @@ import Skeleton from '@/components/Skeleton'
 import type { listSearchParamsProps } from '@/interfaces/searchParamsInterface'
 import { wixClientServer } from '@/lib/wixClientServer'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Suspense } from 'react'
 
 export default async function ListPage({
@@ -22,7 +23,7 @@ export default async function ListPage({
 						Grab up to 50% off on <br /> Selected Products
 					</h1>
 					<button className="rounded-3xl bg-clrPrimary text-white w-max py-3 px-5 text-sm">
-						Buy Now
+						<Link href="/list?cat=deals">Buy Now</Link>
 					</button>
 				</div>
 				<div className="relative w-1/3">
