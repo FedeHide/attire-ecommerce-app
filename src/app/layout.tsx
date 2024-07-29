@@ -4,6 +4,7 @@ import '../scss/main.scss'
 import Navbar from '@/components/navbar/Navbar'
 import Footer from '@/components/footer/Footer'
 import { WixClientProvider } from '@/context/wixContext'
+import { PurchaseProvider } from '@/context/purchaseContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -51,9 +52,11 @@ export default function RootLayout({
 			</head>
 			<body className={inter.className}>
 				<WixClientProvider>
-					<Navbar />
-					{children}
-					<Footer />
+					<PurchaseProvider>
+						<Navbar />
+						{children}
+						<Footer />
+					</PurchaseProvider>
 				</WixClientProvider>
 			</body>
 		</html>

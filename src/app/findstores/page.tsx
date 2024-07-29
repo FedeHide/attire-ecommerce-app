@@ -15,11 +15,11 @@ export default function FindAStore(): JSX.Element {
 					placeholder="City or ZIP code"
 					className="border border-gray-300 rounded-md px-4 py-2 mb-4 w-full md:w-1/2"
 				/>
-				<Link target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-					<button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+				<button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+					<Link target="_blank" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
 						Search
-					</button>
-				</Link>
+					</Link>
+				</button>
 
 				<p className="text-gray-700 mt-8 mb-4">
 					For more information, you can also visit our{' '}

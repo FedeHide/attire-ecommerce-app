@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useWixClient } from '@/context/wixContext'
 import { useCartStore } from '@/hooks/useCartStore'
+import { usePurchase } from '@/context/purchaseContext'
 
 const countries = [
 	'United States',
@@ -27,6 +28,7 @@ interface CheckoutFormProps {
 export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps): JSX.Element {
 	const wixClient = useWixClient()
 	const { getCart, deleteCart } = useCartStore()
+	const { setPurchaseCompleted } = usePurchase()
 
 	const [dataName, setDataName] = useState('')
 	const [dataEmail, setDataEmail] = useState('')
@@ -111,6 +113,7 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 
 	const handlePlaceOrder = async (): Promise<void> => {
 		setIsSubmitting(true)
+		setPurchaseCompleted(true)
 		try {
 			void deleteCart(wixClient)
 			router.push('/success')
@@ -323,7 +326,9 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 									? 'bg-gray-500 cursor-not-allowed'
 									: 'bg-black hover:bg-slate-700'
 							}`}
-							onClick={() => handlePlaceOrder}
+							onClick={() => {
+								void handlePlaceOrder()
+							}}
 							disabled={isSubmitting}
 						>
 							{isSubmitting ? `${dots}` : 'Place Order'}
