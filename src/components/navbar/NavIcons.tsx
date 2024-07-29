@@ -2,8 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useRouter, usePathname } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
 import CartModal from './CartModal'
 import { useWixClient } from '@/context/wixContext'
 import Cookies from 'js-cookie'
@@ -15,12 +15,35 @@ export default function NavIcons(): JSX.Element {
 	const [isCartOpen, setIsCartOpen] = useState(false)
 	const [isLoading, setIsLoading] = useState(false)
 	const router = useRouter()
+	const pathname = usePathname()
 	const isLoggedIn = wixClient.auth.loggedIn()
 	const { counter, getCart } = useCartStore()
+	const profileRef = useRef<HTMLDivElement>(null)
+	const cartRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
 		void getCart(wixClient)
 	}, [wixClient, getCart])
+
+	useEffect(() => {
+		setIsProfileOpen(false)
+		setIsCartOpen(false)
+	}, [pathname])
+
+	useEffect(() => {
+		function handleClickOutside(event: MouseEvent): void {
+			if (profileRef.current != null && !profileRef.current.contains(event.target as Node)) {
+				setIsProfileOpen(false)
+			}
+			if (cartRef.current != null && !cartRef.current.contains(event.target as Node)) {
+				setIsCartOpen(false)
+			}
+		}
+		document.addEventListener('mousedown', handleClickOutside)
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+	}, [profileRef, cartRef])
 
 	const handleProfile = (): void => {
 		if (!isLoggedIn) {
@@ -39,16 +62,6 @@ export default function NavIcons(): JSX.Element {
 		router.push(String(logoutUrl))
 	}
 
-	// AUTH WITH WIX-MANAGED AUTH
-
-	// const wixClient = useWixClient()
-	// const login = async (): Promise<void> => {
-	// 	const loginRequestData = wixClient.auth.generateOAuthData('http://localhost:3000/')
-	// 	localStorage.setItem('oAuthRedirectData', JSON.stringify(loginRequestData))
-	// 	const { authUrl } = await wixClient.auth.getAuthUrl(loginRequestData)
-	// 	window.location.href = authUrl
-	// }
-
 	return (
 		<section className="flex items-center gap-4 xl:gap-6 relative">
 			{/* PROFILE */}
@@ -61,7 +74,10 @@ export default function NavIcons(): JSX.Element {
 				height={22}
 			/>
 			{isProfileOpen && (
-				<div className="absolute p-4 rounded-md top-12 left-0 bg-white text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20">
+				<div
+					ref={profileRef}
+					className="absolute p-4 rounded-md top-12 left-0 bg-white text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20"
+				>
 					<Link href="/profile">Profile</Link>
 					<div
 						className="mt-2 cursor-pointer"
@@ -93,7 +109,11 @@ export default function NavIcons(): JSX.Element {
 					{counter}
 				</div>
 			</div>
-			{isCartOpen && <CartModal />}
+			{isCartOpen && (
+				<div ref={cartRef}>
+					<CartModal />
+				</div>
+			)}
 		</section>
 	)
 }

@@ -4,16 +4,35 @@ import { useWixClient } from '@/context/wixContext'
 import { useCartStore } from '@/hooks/useCartStore'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Menu(): JSX.Element {
 	const wixClient = useWixClient()
 	const [open, setOpen] = useState(false)
 	const { counter } = useCartStore()
+	const pathname = usePathname()
 	const isLoggedIn = wixClient.auth.loggedIn()
+	const menuRef = useRef<HTMLDivElement>(null)
+
+	useEffect(() => {
+		setOpen(false)
+	}, [pathname])
+
+	useEffect(() => {
+		function handleClickOutside(event: MouseEvent): void {
+			if (menuRef.current != null && !menuRef.current.contains(event.target as Node)) {
+				setOpen(false)
+			}
+		}
+		document.addEventListener('mousedown', handleClickOutside)
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+	}, [menuRef])
 
 	return (
-		<section>
+		<section ref={menuRef}>
 			<Image
 				src="/assets/icons/menu-icon.png"
 				alt="menu"
