@@ -33,7 +33,12 @@ const SuccessPage = (): JSX.Element => {
 					<h3 className="">You are being redirected to the order page...</h3>
 				</div>
 			) : (
-				<div></div>
+				<div className="flex flex-col gap-6 items-center justify-center">
+					<h1 className="text-6xl text-red-700">Error</h1>
+					<h2 className="text-xl font-medium">
+						You are being redirected to the main page...
+					</h2>
+				</div>
 			)}
 		</div>
 	)

@@ -23,7 +23,7 @@ export default function CartPage(): JSX.Element {
 	return (
 		<main className="min-h-screen p-10 bg-gray-100">
 			<section className="max-w-2xl mx-auto p-4 rounded-md shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-white">
-				{cart?.lineItems == null ? (
+				{cart?.lineItems == null || cart?.lineItems.length <= 0 ? (
 					<p className="text-center text-lg">Cart is Empty</p>
 				) : (
 					<>
