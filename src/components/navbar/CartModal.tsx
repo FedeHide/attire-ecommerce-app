@@ -61,7 +61,10 @@ export default function CartModal(): JSX.Element {
 										</div>
 										{/* DESC */}
 										<div className="text-sm text-gray-500">
-											<p>{item.availability?.status}</p>
+											<p>{item.descriptionLines?.[0]?.colorInfo?.original}</p>
+										</div>
+										<div className="text-sm text-gray-500">
+											<p>{item.descriptionLines?.[1].plainText?.original}</p>
 										</div>
 									</article>
 									{/* BOTTOM */}

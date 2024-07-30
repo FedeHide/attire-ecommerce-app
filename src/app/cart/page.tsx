@@ -62,8 +62,23 @@ export default function CartPage(): JSX.Element {
 												</div>
 											</div>
 											{/* DESC */}
-											<div className="text-sm text-gray-500 mb-2">
-												<p>{item.availability?.status}</p>
+											<div className="flex flex-col gap-4">
+												<div className="text-sm text-gray-500">
+													<p>
+														{
+															item.descriptionLines?.[0]?.colorInfo
+																?.original
+														}
+													</p>
+												</div>
+												<div className="text-sm text-gray-500">
+													<p>
+														{
+															item.descriptionLines?.[1].plainText
+																?.original
+														}
+													</p>
+												</div>
 											</div>
 										</article>
 										{/* BOTTOM */}
