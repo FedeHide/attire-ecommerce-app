@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function About(): JSX.Element {
 	return (
-		<section className="flex flex-col md:flex-row gap-24 md:h-[calc(100vh-80px)] items-center px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+		<section className="flex flex-col md:flex-row gap-24 md:h-[calc(100vh-10%)] items-center px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
 			<article className="w-full md:w-1/2">
 				<h1 className="text-2xl">About Us</h1>
 				<p className="mt-4 text-gray-700">
