@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 		icon: '/favicon.ico',
 	},
 	openGraph: {
-		url: 'https://palindrome-checker.vercel.app/' /* cambiar */,
+		url: 'https://attire-ecommerce-app.vercel.app/',
 		type: 'website',
 		title: 'ATTIRE | ecommerce-app',
 		description:
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: 'summary_large_image',
-		site: 'https://palindrome-checker.vercel.app/' /* cambiar */,
+		site: 'https://attire-ecommerce-app.vercel.app/',
 	},
 }
 

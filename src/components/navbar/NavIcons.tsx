@@ -56,7 +56,9 @@ export default function NavIcons(): JSX.Element {
 	const handleLogout = async (): Promise<void> => {
 		setIsLoading(true)
 		Cookies.remove('refreshToken')
-		const { logoutUrl } = await wixClient.auth.logout('http://localhost:3000/')
+		const { logoutUrl } = await wixClient.auth.logout(
+			'https://attire-ecommerce-app.vercel.app/',
+		)
 		setIsLoading(false)
 		setIsProfileOpen(false)
 		router.push(String(logoutUrl))
