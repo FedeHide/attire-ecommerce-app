@@ -82,7 +82,7 @@ export default function AddItem({
 							router.push('/login')
 						}
 					}}
-					disabled={isLoading}
+					disabled={isLoading || stockNumber === 0}
 					className="w-36 text-sm rounded-3xl ring-1 ring-clrPrimary text-clrPrimary py-2 px-4 hover:bg-clrPrimary md:active:bg-clrPrimary hover:text-white md:active:text-white disabled:cursor-not-allowed disabled:bg-pink-200 disabled:ring-0 disabled:text-white disabled:ring-none"
 				>
 					Add to Cart
