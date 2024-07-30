@@ -31,12 +31,15 @@ export default function Pagination({
 			</button>
 			<div className="flex items-center justify-evenly w-1/4">
 				{Array.from({ length: maxPages }, (_, i) => i + 1).map((page) => (
-					<p
+					<button
+						onClick={() => {
+							createPageUrl(page - 1)
+						}}
 						key={page}
 						className={`font-semibold text-md ${page === currentPage + 1 ? 'text-clrPrimary' : ''}`}
 					>
 						{page}
-					</p>
+					</button>
 				))}
 			</div>
 			<button
