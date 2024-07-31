@@ -1,9 +1,9 @@
-# Attire - ecommerce-app (FAKE)
+# ATTIRE - Ecommerce-app
 
-### Check the site [Here](https://page.vercel.app/ " Attire - ecommerce-app")<!-- cambiar url -->
+### Check the site [Here](https://attire-ecommerce-app.vercel.app/ " Attire - ecommerce-app")
 
 ## Introduction
-Practice Ecommerce Project: This repository serves as a sandbox for experimenting with ecommerce website development. It contains dummy data and serves no real-world sales purpose.
+Dummy Ecommerce Project: This is a dummy ecommerce site focused on women's clothing, created to showcase website development skills. The project uses placeholder data and is intended solely for portfolio purposes. It does not facilitate real-world sales or transactions. The site demonstrates various features and design elements relevant to ecommerce, providing a comprehensive example of how an online store might be structured and styled.
 
 ## Technologies Used
 <div>
@@ -15,8 +15,7 @@ Practice Ecommerce Project: This repository serves as a sandbox for experimentin
 ------------
 
 
-[![attire-ecommerce-app-ss.webp](https://raw.githubusercontent.com/FedeHide/attire-ecommerce-app/main/public/assets/attire-ecommerce-app-ss.webp)](https://palindrome-checker-eight.vercel.app/)
-<!-- cambiar url -->
+[![attire-ecommerce-app-ss.webp](https://raw.githubusercontent.com/FedeHide/attire-ecommerce-app/main/public/assets/attire-ecommerce-app-ss.webp)](https://attire-ecommerce-app.vercel.app/)
 
 ## Features
 

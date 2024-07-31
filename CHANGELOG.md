@@ -1,20 +1,30 @@
 # Changelog
 
-## [v1.0.0](https://github.com/FedeHide/REPO/releases/tag/v1.0.0) (yyyy-mm-dd)
+## [v1.0.0](https://github.com/FedeHide/REPO/releases/tag/v1.0.0) (2024-07-31)
 
 ### Features
 
-* **chores:** finish success page and lint([8b93902](https://github.com/FedeHide/attire-ecommerce-app/commit/8b9390282bc38df9abd1b145918daf4bd5fab725))
+* **add:** button on numbers to navigate throw them ([a0db2fe](https://github.com/FedeHide/attire-ecommerce-app/commit/a0db2fe96f464c348c8ffea0adde254788493bcc))
 
-* **chores:** add success page([b7d1a97](https://github.com/FedeHide/attire-ecommerce-app/commit/b7d1a97d1e5ec21c87793e4fe61f8eac616eeba6))
+* **add:** items size and colors to cart info ([831a6a5](https://github.com/FedeHide/attire-ecommerce-app/commit/831a6a525d7857c1743cc9203532a9b2278bbe5d))
 
-* **chores:** update checkout page and form PART 2([7a83bc5](https://github.com/FedeHide/attire-ecommerce-app/commit/7a83bc511f229d4ce9d0112cb8bc77fec07e7c9d))
+* **add:** purchase context to prevent user enter success page ([7eca989](https://github.com/FedeHide/attire-ecommerce-app/commit/7eca989263654c45968dc07a0da4caf350fc6047))
 
-* **chores:** update checkout page and form ([7dc6470](https://github.com/FedeHide/attire-ecommerce-app/commit/7dc6470aac11a56664ce88a75569ef1b4e4e676b))
+* **add:** all links and footer pages ([87519dc](https://github.com/FedeHide/attire-ecommerce-app/commit/87519dc90ed24636d8b9240521c6eff0e1e2fe65))
 
-* **chores:** update checkout page, right side ([6863d2b](https://github.com/FedeHide/attire-ecommerce-app/commit/6863d2b24799e7f9ff089f7f1b2ee6eca69207e5))
+* **add:** careers page ([38c62cc](https://github.com/FedeHide/attire-ecommerce-app/commit/38c62cc49fa1f53ece43ecea8fc7424b804e15d2))
 
-* **chores:** building a checkout page ([5f0b84a](https://github.com/FedeHide/attire-ecommerce-app/commit/5f0b84ae30080f1e7e179b50b23daf05d5e42ae5))
+* **add:** cart page ([ba2cf78](https://github.com/FedeHide/attire-ecommerce-app/commit/ba2cf7889b2823da4e50f7c3a35a2df412090433))
+
+* **add:** contact page ([807f53e](https://github.com/FedeHide/attire-ecommerce-app/commit/807f53e7b5224e8a17c547c87ce064528602262e))
+
+* **add:** about page ([c7f773e](https://github.com/FedeHide/attire-ecommerce-app/commit/c7f773e123589c58bac1bec8aebbb40d7c1885f8))
+
+* **add:** update profile form with server actions ([e7ee009](https://github.com/FedeHide/attire-ecommerce-app/commit/e7ee009402ef9a5944cc852242ece72063bdaf2d))
+
+* **add:** profile page ([b09c2e8](https://github.com/FedeHide/attire-ecommerce-app/commit/b09c2e8a20a6d4daf7552c17cbead5fd9a85a914))
+
+* **add:** search bar improvement expanding search values ([1256a89](https://github.com/FedeHide/attire-ecommerce-app/commit/1256a896346c223726bcae6c3ea0db8de24059ee))
 
 * **add:** cart state management with zustand ([92e66d9](https://github.com/FedeHide/attire-ecommerce-app/commit/92e66d98f2609eebedf0d31786196e69ed6b9c7c))
 
@@ -80,6 +90,14 @@
 
 ### Fix
 
+* **hotfix:** handle profile page when not logged in ([e582912](https://github.com/FedeHide/attire-ecommerce-app/commit/e5829124b0392e932861748c6db42f0b115f88d4))
+
+* **hotfix:** disable add button when without any selection ([49ed107](https://github.com/FedeHide/attire-ecommerce-app/commit/49ed10749c16ccf611ee3889a3c30040531c12f7))
+
+* **hotfix:** Checks required for success page and checkout page ([3e40ae4](https://github.com/FedeHide/attire-ecommerce-app/commit/3e40ae41d47401e68afb5bd7c53bcc732e84dbc8))
+
+* **hotfix:** menus closes when click outside or change page ([11da33c](https://github.com/FedeHide/attire-ecommerce-app/commit/11da33cc41412b56df5149de42c13ce796f13722))
+
 * **hotfix:** hidden "deals" category ([c310be0](https://github.com/FedeHide/attire-ecommerce-app/commit/c310be03296b74df11d04e16f8c846661b774196))
 
 * **hotfix:** some links redirection ([5bd0c38](https://github.com/FedeHide/attire-ecommerce-app/commit/5bd0c38ead00917a74e38df9161cf3ddd0407d61))
@@ -98,6 +116,8 @@
 
 ### UI changes
 
+* **style:** fix responsive adaptation on screens with less height ([18c3b64](https://github.com/FedeHide/attire-ecommerce-app/commit/18c3b64dcc1d4166f11730675954e31a3d41dc22))
+
 * **style:** change hero slides images ([9c46300](https://github.com/FedeHide/attire-ecommerce-app/commit/9c46300f2ba76e834d2efc8743e04ae515c83f3b))
 
 * **style:** add underline on hover links in footer section ([a305401](https://github.com/FedeHide/attire-ecommerce-app/commit/a3054017317222bd3ef0367b0e199c41c51c45ee))
@@ -106,7 +126,29 @@
 
 ### Other Changes
 
+* **chores:** change redirection to main when logout and dopmain name meta ([ae3bab7](https://github.com/FedeHide/attire-ecommerce-app/commit/ae3bab7c951b46a194bfebe4b6aef0d28f952758))
+
+* **chores:** change links href in navigation ([88fb35c](https://github.com/FedeHide/attire-ecommerce-app/commit/88fb35cdb13aa08a9051f8294177e6d3bc3ee48f))
+
+* **chores:** update list page ([b0a8571](https://github.com/FedeHide/attire-ecommerce-app/commit/b0a8571183667293f56ea2598d175dfc80430e0e))
+
+* **chores:** update login page ([fc068a3](https://github.com/FedeHide/attire-ecommerce-app/commit/fc068a37e0f83724380ee1c762c24455967d21f5))
+
+* **chores:** update profile page ([3bd72f5](https://github.com/FedeHide/attire-ecommerce-app/commit/3bd72f50b4d4a10fd9cb2123b05b38527dfed784))
+
 * **chores:** modify slug page paragraphs ([88d93e4](https://github.com/FedeHide/attire-ecommerce-app/commit/88d93e4ddfd7d36c1ee3f8edb7b0834115296a09))
+
+* **chores:** finish success page and lint ([8b93902](https://github.com/FedeHide/attire-ecommerce-app/commit/8b9390282bc38df9abd1b145918daf4bd5fab725))
+
+* **chores:** add success page([b7d1a97](https://github.com/FedeHide/attire-ecommerce-app/commit/b7d1a97d1e5ec21c87793e4fe61f8eac616eeba6))
+
+* **chores:** update checkout page and form PART 2 ([7a83bc5](https://github.com/FedeHide/attire-ecommerce-app/commit/7a83bc511f229d4ce9d0112cb8bc77fec07e7c9d))
+
+* **chores:** update checkout page and form ([7dc6470](https://github.com/FedeHide/attire-ecommerce-app/commit/7dc6470aac11a56664ce88a75569ef1b4e4e676b))
+
+* **chores:** update checkout page, right side ([6863d2b](https://github.com/FedeHide/attire-ecommerce-app/commit/6863d2b24799e7f9ff089f7f1b2ee6eca69207e5))
+
+* **chores:** building a checkout page ([5f0b84a](https://github.com/FedeHide/attire-ecommerce-app/commit/5f0b84ae30080f1e7e179b50b23daf05d5e42ae5))
 
 * **chores:** change folder structure ([21a65a1](https://github.com/FedeHide/attire-ecommerce-app/commit/21a65a1f3c913bb828f456d6aa2a5924785bf72f))
 
