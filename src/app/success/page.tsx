@@ -1,4 +1,3 @@
-// SuccessPage.tsx
 'use client'
 import { usePurchase } from '@/context/purchaseContext'
 import { useRouter } from 'next/navigation'

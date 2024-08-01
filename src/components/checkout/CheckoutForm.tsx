@@ -94,6 +94,7 @@ export default function CheckoutForm({ updateShippingCost }: CheckoutFormProps):
 		setDataShipping(formData.shippingMethod)
 		setDataShippingCost(formData.shippingCost)
 		setIsPlaceOrder(true)
+		window.scrollTo(0, 0)
 	}
 
 	const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>): void => {
