@@ -42,7 +42,7 @@ export default function Filter(): JSX.Element {
 			<div className="flex gap-6 flex-wrap">
 				<select
 					name="type"
-					className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
+					className="py-2 px-10 sm:px-4 rounded-2xl text-sm sm:text-xs font-medium bg-[#EBEDED]"
 					onChange={handleFilterChange}
 					value={typeValue}
 				>
@@ -54,7 +54,7 @@ export default function Filter(): JSX.Element {
 					type="text"
 					name="min"
 					placeholder="min price"
-					className="text-xs rounded-2xl pl-2 w-24 ring-1 ring-gray-400"
+					className="text-sm sm:text-xs rounded-2xl pl-2 w-24 ring-1 ring-gray-400"
 					onChange={handleFilterChange}
 					value={minValue}
 				/>
@@ -62,7 +62,7 @@ export default function Filter(): JSX.Element {
 					type="text"
 					name="max"
 					placeholder="max price"
-					className="text-xs rounded-2xl pl-2 w-24 ring-1 ring-gray-400"
+					className="text-sm sm:text-xs rounded-2xl pl-2 w-24 ring-1 ring-gray-400"
 					onChange={handleFilterChange}
 					value={maxValue}
 				/>
