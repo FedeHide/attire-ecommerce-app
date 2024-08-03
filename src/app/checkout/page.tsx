@@ -64,7 +64,7 @@ export default function CheckoutPage(): JSX.Element {
 					</h2>
 				</div>
 			) : (
-				<section className="flex flex-col gap-4 py-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+				<section className="flex flex-col gap-4 py-18 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
 					<div className="flex justify-between">
 						<div>
 							<span className="text-xl font-bold tracking-wide">ATTIRE </span>
@@ -75,11 +75,8 @@ export default function CheckoutPage(): JSX.Element {
 						</Link>
 					</div>
 					<div className="h-[2px] w-full bg-gray-200 my-4"></div>
-					<section className="flex gap-16">
-						<article className="w-1/2">
-							<CheckoutForm updateShippingCost={updateShippingCost} />
-						</article>
-						<article className="flex flex-col gap-3 w-1/2">
+					<section className="flex flex-col sm:flex-row gap-16">
+						<article className="flex flex-col gap-3 md:w-1/2">
 							<div className="flex flex-col items-center gap-4 bg-gray-100 p-4 rounded-lg">
 								<div className="flex justify-between w-full">
 									<h3>Order summary ({cart.lineItems?.length})</h3>
@@ -138,6 +135,9 @@ export default function CheckoutPage(): JSX.Element {
 								<LockIcon />
 								<p className="mt-1">Secure Checkout</p>
 							</div>
+						</article>
+						<article className="sm:w-1/2">
+							<CheckoutForm updateShippingCost={updateShippingCost} />
 						</article>
 					</section>
 				</section>
