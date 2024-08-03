@@ -51,11 +51,11 @@ export default function CartPage(): JSX.Element {
 										{/* TOP */}
 										<article>
 											{/* TITLE */}
-											<div className="flex flex-col justify-between gap-2 mb-2">
-												<h2 className="font-semibold text-lg">
+											<div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+												<h2 className="font-semibold text-lg md:text-xl">
 													{item.productName?.original}
 												</h2>
-												<div className="p-1 bg-gray-50 rounded-sm text-lg">
+												<div className="p-1 md:bg-gray-50 rounded-sm text-lg">
 													$
 													{Number(item.price?.amount) *
 														(item.quantity ?? 0)}
