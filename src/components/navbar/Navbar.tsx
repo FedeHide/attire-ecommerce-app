@@ -20,7 +20,20 @@ export default function Navbar(): JSX.Element {
 				<Link href="/">
 					<div className="text-2xl tracking-wide">ATTIRE</div>
 				</Link>
-				<Menu />
+				<section className="flex justify-between items-center gap-4">
+					<Link href="/cart">
+						<div className="relative cursor-pointer">
+							<Image
+								src="/assets/icons/cart-icon.png"
+								alt="cart icon"
+								width={22}
+								height={22}
+							/>
+							<div className="absolute -top-3 -right-3 w-4 h-4 bg-clrPrimary rounded-full text-white text-sm flex items-center justify-center"></div>
+						</div>
+					</Link>
+					<Menu />
+				</section>
 			</article>
 			{/* DESKTOP */}
 			<article className="hidden md:flex items-center justify-between gap-8 h-full">
