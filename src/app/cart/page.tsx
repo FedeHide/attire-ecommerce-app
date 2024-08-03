@@ -51,8 +51,8 @@ export default function CartPage(): JSX.Element {
 										{/* TOP */}
 										<article>
 											{/* TITLE */}
-											<div className="flex items-center justify-between gap-8 mb-2">
-												<h2 className="font-semibold text-xl">
+											<div className="flex flex-col justify-between gap-2 mb-2">
+												<h2 className="font-semibold text-lg">
 													{item.productName?.original}
 												</h2>
 												<div className="p-1 bg-gray-50 rounded-sm text-lg">
@@ -62,7 +62,7 @@ export default function CartPage(): JSX.Element {
 												</div>
 											</div>
 											{/* DESC */}
-											<div className="flex flex-col gap-4">
+											<div className="flex flex-col">
 												<div className="text-sm text-gray-500">
 													<p>
 														{
