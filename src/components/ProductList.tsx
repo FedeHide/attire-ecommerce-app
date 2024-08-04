@@ -93,7 +93,7 @@ export default async function ProductList({
 	}
 
 	return (
-		<section className="flex gap-x-8 gap-y-16 flex-wrap mt-12">
+		<section className="flex gap-x-8 gap-y-16 justify-between flex-wrap mt-12">
 			{sortedAndTyped
 				.slice(paginationData[0].offset, paginationData[0].offset + paginationData[0].limit)
 				.map((product: products.Product) => (
