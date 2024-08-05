@@ -1,5 +1,27 @@
 # Changelog
 
+## [v1.1.0](https://github.com/FedeHide/REPO/releases/tag/v1.1.0) (2024-08-05)
+
+### Features
+
+* **add:** cart icon in mobile navbar ([85f82ad](https://github.com/FedeHide/attire-ecommerce-app/commit/85f82ad3e5d9243fe64b6ee428259d600fd7b93a))
+
+### Fix
+
+* **hotfix:** adjust padding on productList in main section ([1687583](https://github.com/FedeHide/attire-ecommerce-app/commit/16875836b6e258b51b019aba539506b96b2d9650))
+
+* **hotfix:** adjust responsive design for mobile devices in filter component ([6f1da05](https://github.com/FedeHide/attire-ecommerce-app/commit/6f1da054df23709fa779c818c8bc3b1d10c66eb4))
+
+* **hotfix:** adjust responsive design for mobile devices in checkout page ([e33fa1c](https://github.com/FedeHide/attire-ecommerce-app/commit/e33fa1cbef72ec1ce9a37bb0c5aa956f15da8321))
+
+* **hotfix:** adjust responsive design for mobile devices part 2 ([6ef14d7](https://github.com/FedeHide/attire-ecommerce-app/commit/6ef14d7b70286d9085f5ab77fff19f7766d5e642))
+
+* **hotfix:** adjust responsive design for mobile devices ([7711c03](https://github.com/FedeHide/attire-ecommerce-app/commit/7711c03ce332cd356d8758b8048fc5bb447fd852))
+
+### UI changes
+
+* **UI:** scroll to top when continue form in checkout page ([e9ff45c](https://github.com/FedeHide/attire-ecommerce-app/commit/e9ff45c6f5fc5fc4fafa5f26cf4ad8a76efc87bb))
+
 ## [v1.0.0](https://github.com/FedeHide/REPO/releases/tag/v1.0.0) (2024-07-31)
 
 ### Features
